@@ -1,0 +1,5 @@
+com/kainos/librarysystem/LibrarySystemApplication.class
+com/kainos/librarysystem/views/Index.class
+com/kainos/librarysystem/resource/ViewsResource.class
+com/kainos/librarysystem/configuration/LibrarySystemConfiguration.class
+com/kainos/librarysystem/LibrarySystemApplication$1.class
