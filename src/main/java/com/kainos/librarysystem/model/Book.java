@@ -1,8 +1,11 @@
 package com.kainos.librarysystem.model;
 
+import java.util.List;
+
 public class Book {
 	
 	private String title, author;
+	private List<Category> categories;
 	private int yearPublished;
 	
 	public Book(){
