@@ -11,6 +11,14 @@ public class Book {
 	public Book(){
 	}
 	
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+
 	public Book(String title, String author){
 		this.title=title;
 		this.author=author;
@@ -45,5 +53,12 @@ public class Book {
 	public void setYearPublished(int yearPublished) {
 		this.yearPublished = yearPublished;
 	}
+
+	@Override
+	public String toString() {
+		return "Book [title=" + title + ", author=" + author + ", categories="
+				+ categories + ", yearPublished=" + yearPublished + "]";
+	}
+	
 
 }
