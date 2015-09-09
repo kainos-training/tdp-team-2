@@ -6,28 +6,41 @@ public class Book {
 	
 	private String title, author;
 	private List<Category> categories;
-	private int yearPublished;
-	
-	public Book(){
-	}
-	
-	public List<Category> getCategories() {
-		return categories;
-	}
-
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
-	}
+	private int yearPublished, bookID;
 
 	public Book(String title, String author){
 		this.title=title;
 		this.author=author;
+		
 	}
 	
 	public Book(String title, String author, int yearPublished){
 		this.title=title;
 		this.author=author;
 		this.yearPublished=yearPublished;
+	}
+	
+	public Book(int bookID, String title, String author, int yearPublished){
+		this.title=title;
+		this.author=author;
+		this.yearPublished=yearPublished;
+		this.bookID = bookID;
+	}
+	
+	public int getBookID() {
+		return bookID;
+	}
+
+	public void setBookID(int bookID) {
+		this.bookID = bookID;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
 	}
 	
 	public String getTitle() {
