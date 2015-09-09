@@ -1,10 +1,12 @@
 package com.kainos.librarysystem.database;
 
+import java.awt.print.Book;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Category;
@@ -30,7 +32,7 @@ public class LibraryConnector {
 
 	public List<Category> getCategories() {
 		
-		List<Category> categories = new List<Category>;
+		List<Category> categories = new ArrayList<Category>();
 		
 		Statement st = c.createStatement();
 		ResultSet rs = st
@@ -45,7 +47,7 @@ public class LibraryConnector {
 
 	public List<Book> getBooks() {
 		
-		List<Book> books = new List<Book>;
+		List<Book> books = new ArrayList<Book>();
 		
 		Statement st = c.createStatement();
 		ResultSet rs = st
