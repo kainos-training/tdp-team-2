@@ -1,4 +1,5 @@
-<#-- @ftlvariable name="" type="com.kainos.librarysystem.views.Home" -->
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,9 +14,8 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-<main id="content" role="main" xmlns="http://www.w3.org/1999/html">
-<body>
-     <header>
+  <body>
+      <header>
         <nav class="navbar navbar-default main-nav">
             <div class="container">
             <div class="navbar-header">
@@ -30,9 +30,7 @@
             </div>
         </nav>
       </header>
-
-
- <section>
+      <section>
           <div class="container">
               <div class="row">
                   <div class="col-md-12">
@@ -53,16 +51,20 @@
                                   </tr>
                               </thead>
                               <tbody>
-                                  
-                                  <#list books as b>
                                   <tr>
-                                      <td>${b.title}</td>
-                                      <td>${b.author}</td>
-                                      <td>Category</td>
-                                      <td>${b.yearPublished}</td>
+                                      <td>Understanding MySQL</td>
+                                      <td>Don Norman</td>
+                                      <td>Databases</td>
+                                      <td>1999</td>
                                       <td><a href="#">View</a></td>
                                   </tr>
-                                  </#list>
+                                  <tr>
+                                      <td>CSS Cookbook</td>
+                                      <td>Andrew Clarke</td>
+                                      <td>Web development</td>
+                                      <td>2008</td>
+                                      <td><a href="#">View</a></td>
+                                  </tr>
                               </tbody>
                           </table> 
                       </div>  
@@ -70,7 +72,7 @@
               </div>
           </div>
       </section>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</body>
-</main>
+  </body>
+</html>
