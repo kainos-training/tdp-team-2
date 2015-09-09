@@ -53,9 +53,7 @@ public class LibraryConnector {
 				.executeQuery("SELECT Title, Author, YearPublished FROM Book");
 		
 		while (rs.next()) {
-			Book bookToAdd = new Book();
-			bookToAdd.setTitle(rs.getString("Title"));
-			bookToAdd.setAuthor(rs.getString("Author"));
+			Book bookToAdd = new Book(rs.getString("Title"), rs.getString("Author"));
 			bookToAdd.setYearPublished(rs.getInt("YearPublished"));
 			books.add(bookToAdd);
 		}
