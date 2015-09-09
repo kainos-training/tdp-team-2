@@ -1,6 +1,5 @@
 package com.kainos.librarysystem.database;
 
-import java.awt.print.Book;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -9,7 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Category;
+import com.kainos.librarysystem.model.Book;
+import com.kainos.librarysystem.model.Category;
 
 public class LibraryConnector {
 	private Connection c;
@@ -30,7 +30,7 @@ public class LibraryConnector {
 
 	}
 
-	public List<Category> getCategories() {
+	public List<Category> getCategories() throws SQLException {
 		
 		List<Category> categories = new ArrayList<Category>();
 		
@@ -38,14 +38,13 @@ public class LibraryConnector {
 		ResultSet rs = st
 				.executeQuery("SELECT CategoryName FROM Category");
 		while (rs.next()) {
-			Category categoryToAdd = new Category();
-			categoryToAdd.setName(rs.getString("CategoryName"));
+			Category categoryToAdd = new Category(rs.getString("CategoryName"));
 			categories.add(categoryToAdd);
 		}
 		return categories;
 	}
 
-	public List<Book> getBooks() {
+	public List<Book> getBooks() throws SQLException {
 		
 		List<Book> books = new ArrayList<Book>();
 		
@@ -55,10 +54,11 @@ public class LibraryConnector {
 		
 		while (rs.next()) {
 			Book bookToAdd = new Book();
-			bookToAdd.setName(rs.getString("CategoryName"));
+			bookToAdd.setTitle(rs.getString("Title"));
+			bookToAdd.setAuthor(rs.getString("Author"));
+			bookToAdd.setYearPublished(rs.getInt("YearPublished"));
 			books.add(bookToAdd);
 		}
-		
 		return books;
 	}
 }
