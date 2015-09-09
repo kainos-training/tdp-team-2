@@ -15,7 +15,7 @@
 			<option id="leadership_management" value="Leadership & Management">Leadership & Management</option>
 			<option id="project_execution" value="Project Execution">Project Execution</option>
 		</select> <br>
-		Year: <input type="text" id="year" name="year" size="4"/> <br>
+		Year: <input type="text" id="year" name="year" maxlength="4"/> <br>
 		<input type="submit" id="submit" name="submit"/>
 	</form>
 </body>

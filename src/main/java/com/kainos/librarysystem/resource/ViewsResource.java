@@ -24,7 +24,6 @@ public class ViewsResource {
 	public View sayHello(){
 		return new Index();
 	}
-
 	
 	@GET
 	@Timed
