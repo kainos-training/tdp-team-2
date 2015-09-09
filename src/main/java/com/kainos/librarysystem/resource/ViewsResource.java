@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.codahale.metrics.annotation.Timed;
 import com.kainos.librarysystem.views.Index;
+import com.kainos.librarysystem.views.Home;
 
 @Path("/")
 public class ViewsResource {
@@ -21,6 +22,15 @@ public class ViewsResource {
 	@Produces(MediaType.TEXT_HTML)
 	public View sayHello(){
 		return new Index();
+		
+		
 	}
-
+	@GET
+	@Timed
+	@Path("/Home")
+	@Produces(MediaType.TEXT_HTML)
+	public View Home(){
+		return new Home();
+	
+	}
 }
