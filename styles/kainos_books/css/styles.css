@@ -1,0 +1,103 @@
+/* Overwrites 
+--------------------------------------------------- */
+body {
+  max-width: 1200px !important; }
+
+/* navigation
+--------------------------------------------------- */
+.main-nav {
+  padding: 20px 0; }
+  .main-nav .nav li {
+    margin-left: 40px; }
+
+.nav-pills li.active a {
+  background-color: #77af4b;
+  color: white; }
+  .nav-pills li.active a:hover {
+    background-color: #77af4b !important; }
+
+.navbar a {
+  transition: 0.4s;
+  color: #777;
+  font-size: 15px;
+  background-color: none; }
+  .navbar a:hover {
+    background-color: #fff !important;
+    color: #000; }
+
+header {
+  border-bottom: 1px solid #eee;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5); }
+
+.nav {
+  margin-top: 8px; }
+
+/* Tables
+--------------------------------------------------- */
+td {
+  padding: 30px 8px 30px 8px !important; }
+
+.table-striped tbody tr:nth-of-type(odd), .table-striped tbody tr:nth-of-type(even) {
+  transition: 0.5s background-color; }
+  .table-striped tbody tr:nth-of-type(odd):hover, .table-striped tbody tr:nth-of-type(even):hover {
+    background-color: lightgray;
+    outline: 1px solid #b3b3b3;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5); }
+
+/* Headline component
+--------------------------------------------------- */
+.headline {
+  background-image: url("../img/background.png");
+  background-repeat: no-repeat;
+  height: 230px;
+  padding-top: 90px;
+  opacity: 0.9; }
+  .headline h1 {
+    font-size: 28px;
+    color: rgba(0, 0, 0, 0.8); }
+
+.table, form {
+  margin-top: 50px; }
+
+/* Forms
+--------------------------------------------------- */
+form {
+  padding-bottom: 30px; }
+
+.form-group {
+  margin-bottom: 50px; }
+
+.medium {
+  width: 380px; }
+
+.small {
+  width: 280px; }
+
+.error label, .error .errortext {
+  color: red; }
+.error .errortext {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-style: italic; }
+
+.button-group {
+  margin-top: 80px; }
+  .button-group button {
+    font-size: 18px;
+    margin-right: 30px; }
+  .button-group .btn-primary {
+    background-image: linear-gradient(-180deg, #00AA4D 0%, #96C842 100%);
+    border: 1px solid rgba(0, 0, 0, 0.3); }
+    .button-group .btn-primary:hover {
+      background-image: linear-gradient(-180deg, #007736 0%, #7aa730 100%); }
+
+/* Media Queries 
+--------------------------------------------------- */
+/* extra small */
+/* small*/
+/* medium */
+/* large */
+
+/*# sourceMappingURL=styles.css.map */
