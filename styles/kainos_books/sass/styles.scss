@@ -64,14 +64,14 @@ td{
 
 
 .headline{
-    background-image: url('../img/background.png');
+    background-image: url('../img/background.png'); //changed
     background-repeat: repeat-x;
-    height:230px;
-    padding-top:90px;
+    height:130px;
+    padding-top:35px; //changed
     opacity: 0.9;
     h1{
         font-size:28px;
-        color:rgba(0,0,0,0.8);
+        color:rgba(255,255,255,0.8);
     }
 }
 
@@ -133,6 +133,32 @@ form{
     margin-top:30px;
     i:first-of-type{
         padding-right: 15px; 
+    }
+}
+
+/* Data table search
+--------------------------------------------------- */
+
+#dataTable_length, #dataTable_info, #dataTable_paginate{
+    display: none;
+}
+
+#dataTable_filter{
+    float:right;
+    margin-top:30px;
+    label{
+        margin-left:40px;
+    }
+    input{
+        margin: 5px 0 30px 15px;
+        border-radius: 3px;
+        border:1px solid #ccc;
+        padding:7px 8px;
+        width:300px;
+        font-weight: 400;
+        &:hover{
+            border: 1px solid #71b0e6;
+        }
     }
 }
 
