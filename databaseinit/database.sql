@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS `Book`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Book` (
   `BookID` int(11) NOT NULL AUTO_INCREMENT,
-  `Title` varchar(45) NOT NULL,
+  `Title` varchar(255) NOT NULL,
   `Author` varchar(45) NOT NULL,
   `YearPublished` int(11) DEFAULT NULL,
   PRIMARY KEY (`BookID`)
