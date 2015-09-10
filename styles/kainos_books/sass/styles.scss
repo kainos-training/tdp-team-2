@@ -1,9 +1,7 @@
 /* Overwrites 
 --------------------------------------------------- */
 
-body{
-    max-width:1200px !important;
-}
+
 
 /* navigation
 --------------------------------------------------- */
@@ -67,7 +65,7 @@ td{
 
 .headline{
     background-image: url('../img/background.png');
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
     height:230px;
     padding-top:90px;
     opacity: 0.9;
