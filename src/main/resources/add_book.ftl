@@ -7,7 +7,7 @@
     <!-- Bootstrap -->
     <link href="assets/stylesheets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!--Overwrites-->
-    <link href="assets/stylesheets/bootstrap/css/styles.css" rel="stylesheet">
+    <link href="assets/stylesheets/styles.css" rel="stylesheet">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -57,24 +57,28 @@
                   <div class="col-md-12 col-lg-12">
                       
                         <form action="add-book" method="POST" role="form">
-                      <div class="form-group error">
+                      <div class="form-group">
                           <label for="title">Book title &#42;</label>
                           <input type="title" class="form-control medium" id="title" required>
-                          <span class="errortext">
+                         <!-- <span class="errortext">
                               <i class="glyphicon glyphicon-info-sign"></i>
                               You did not include a book title
-                          </span>
+                          </span> -->
                       </div>
                       <div class="form-group">
                           <label for="author">Author &#42;</label>
                           <input type="author" class="form-control small" id="author" required>
+                         <!-- <span class="errortext">
+                              <i class="glyphicon glyphicon-info-sign"></i>
+                              You did not include the Authors name
+                          </span> -->
                       </div> 
                       <div class="form-group">
                           <label for="category">Category &#42;</label>
                           <select id="category" name="select" class="form-control medium">
-                              <option value="1">Category one</option>
-                              <option value="2">Category two</option>
-                              <option value="3">Category three</option>                          
+                              <option value="1">Leadership & Management</option>
+                              <option value="2">Project Execution</option>
+                              <option value="3">Technical</option>                          
                           </select>
                       </div>
                       <div class="form-group">
@@ -103,6 +107,6 @@
       
           </div>
       </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script assets/stylesheets/bootstrap/js/src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script assets/stylesheets/bootstrap/js/src="js/bootstrap.min.js"></script>
   </body>
