@@ -33,7 +33,7 @@ public class LibraryConnectorTest {
 		assertFalse(books.size() == 0);
 	}
 	
-	@Test
+	@Ignore
 	public void canAddBooks() {
 		java.util.Date date = new java.util.Date();
 		Long timestamp = date.getTime();

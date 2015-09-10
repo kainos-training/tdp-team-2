@@ -31,4 +31,15 @@ public class ViewsResourceTest {
 	
 	}
 	
+	@Test
+	public void testDatabaseConnectorCalledOnAddBooks() throws SQLException
+	{
+		viewsResource.addBook("Title", "author", "2000", "1");
+		
+		
+	    verify(dbMockClient).addBook("Title", "author", "2000", "1");
+		verify(dbMockClient).getBooks();
+	
+	}
+	
 }
