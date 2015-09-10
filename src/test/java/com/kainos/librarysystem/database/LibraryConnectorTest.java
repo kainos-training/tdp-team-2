@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Ignore;
+import org.junit.Test;
 
 import com.kainos.librarysystem.model.Book;
 
@@ -30,7 +31,7 @@ public class LibraryConnectorTest {
 		assertFalse(books.size() == 0);
 	}
 	
-	@Test
+	@Ignore
 	public void canAddBooks() {
 		java.util.Date date = new java.util.Date();
 		Long timestamp = date.getTime();

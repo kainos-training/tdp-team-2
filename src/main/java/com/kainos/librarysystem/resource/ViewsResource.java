@@ -66,10 +66,13 @@ public class ViewsResource {
 		lc.addBook(title, author, year, catId);
 
 		if (title.isEmpty() || author.isEmpty()) {
-			
+			getAddBook();
+		}
+		if(catId.equals("-1")){
+			getAddBook();
 		}
 
-		return new Index();
+		return new Home();
 
 	}
 }
