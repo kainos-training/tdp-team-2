@@ -73,18 +73,13 @@ public class LibraryConnector {
 		return books;
 	}
 
-	@POST
-    @Timed
-    @Path("add-book")
     public void addBook(@FormParam("title") String title, @FormParam("author") String author, 
             @FormParam("yearPublished") String yearPublished,
             @FormParam("catId") String catId) throws SQLException {
 
-        // the mysql insert statement
         String query = " INSERT INTO Book (Title, Author, YearPublished)"
                 + " VALUES (?, ?, ?);";
 
-        // create the mysql insert preparedstatement
         PreparedStatement preparedStmt;
         preparedStmt = c.prepareStatement(query,
                 Statement.RETURN_GENERATED_KEYS);
@@ -92,7 +87,6 @@ public class LibraryConnector {
         preparedStmt.setString(2, author);
         preparedStmt.setString(3, yearPublished);
 
-        // execute the preparedstatement
         preparedStmt.execute();
 
         ResultSet rs = null;
@@ -102,7 +96,6 @@ public class LibraryConnector {
         rs.first();
         bookId = rs.getInt(1);
 
-        // create the mysql insert preparedstatement
         String queryAddBookCat = " INSERT INTO BookCategory (BookID, CategoryID)"
                 + " VALUES (?, ?);";
         PreparedStatement preparedStmtAddBookCat;
@@ -110,7 +103,6 @@ public class LibraryConnector {
         preparedStmtAddBookCat.setInt(1, bookId);
         preparedStmtAddBookCat.setInt(2, Integer.parseInt(catId));
 
-        // execute the preparedstatement
         preparedStmtAddBookCat.executeUpdate();
     }
 

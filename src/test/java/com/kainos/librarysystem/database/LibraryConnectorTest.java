@@ -19,7 +19,7 @@ public class LibraryConnectorTest {
 			"jdbc:mysql://localhost/LibraryDB", "libraryuser",
 			"librarypassword");
 
-	@Ignore
+	@Test
 	public void testCanGetBooksFromDatabase() {
 
 		List<Book> books = new ArrayList<Book>();
@@ -33,7 +33,7 @@ public class LibraryConnectorTest {
 		assertFalse(books.size() == 0);
 	}
 	
-	@Ignore
+	@Test
 	public void canAddBooks() {
 		java.util.Date date = new java.util.Date();
 		Long timestamp = date.getTime();
