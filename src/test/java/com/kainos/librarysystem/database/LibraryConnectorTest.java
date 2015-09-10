@@ -1,6 +1,7 @@
 package com.kainos.librarysystem.database;
 
 import static org.junit.Assert.assertFalse;
+import static org.mockito.Mockito.mock;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,9 +14,11 @@ import com.kainos.librarysystem.model.Book;
 
 public class LibraryConnectorTest {
 
-	LibraryConnector lc = new LibraryConnector(
+	 LibraryConnector lc = new LibraryConnector(
+	 
 			"jdbc:mysql://localhost/LibraryDB", "libraryuser",
 			"librarypassword");
+
 
 	@Ignore
 	public void testCanGetBooksFromDatabase() {
