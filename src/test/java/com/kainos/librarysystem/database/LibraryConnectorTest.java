@@ -19,7 +19,6 @@ public class LibraryConnectorTest {
 			"jdbc:mysql://localhost/LibraryDB", "libraryuser",
 			"librarypassword");
 
-
 	@Ignore
 	public void testCanGetBooksFromDatabase() {
 

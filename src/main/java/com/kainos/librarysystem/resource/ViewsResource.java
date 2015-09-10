@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -18,6 +19,8 @@ import javax.ws.rs.core.MediaType;
 import com.codahale.metrics.annotation.Timed;
 import com.kainos.librarysystem.database.LibraryConnector;
 import com.kainos.librarysystem.model.Book;
+import com.kainos.librarysystem.views.AddBookView;
+import com.kainos.librarysystem.views.Index;
 import com.kainos.librarysystem.views.Home;
 import com.kainos.librarysystem.views.Index;
 
@@ -51,5 +54,11 @@ public class ViewsResource {
 		return new Home(books);
 	
 	}
-
+	@GET
+	@Timed
+	@Path("/add-book")
+	@Produces(MediaType.TEXT_HTML)
+	public View getAddBook(){
+		return new AddBookView();
+	}
 }
