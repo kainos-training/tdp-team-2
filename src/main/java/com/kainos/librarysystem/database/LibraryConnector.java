@@ -21,7 +21,7 @@ public class LibraryConnector {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		
 	}
 
 	public List<Category> getCategories() throws SQLException {
@@ -34,6 +34,7 @@ public class LibraryConnector {
 			Category categoryToAdd = new Category(rs.getString("CategoryName"));
 			categories.add(categoryToAdd);
 		}
+		st.close();
 		return categories;
 	}
 
@@ -64,6 +65,7 @@ public class LibraryConnector {
 
 			books.add(bookToAdd);
 		}
+		st.close();
 		return books;
 	}
 
