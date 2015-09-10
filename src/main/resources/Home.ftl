@@ -27,7 +27,7 @@
 				</div>
 				<ul class="nav nav-pills pull-right">
 					<li role="presentation" class="active"><a href="#">Home</a></li>
-					<li role="presentation"><a href="add_book.ftl">Add a book</a></li>
+					<li role="presentation"><a href="/add-book">Add a book</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -62,8 +62,7 @@
 									<th>Title</th>
 									<th>Author</th>
 									<th>Category</th>
-									<th>Publish Year</th>
-									<th>Actions</th>
+									<th>Publish year</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -74,7 +73,6 @@
 									<td>${b.author}</td>
 									<td>${b.categories[0].categoryName!''}</td>
 									<td>${b.yearPublished?c}</td>
-									<td><a href="#">View</a></td>
 								</tr>
 								</#list>
 							</tbody>
