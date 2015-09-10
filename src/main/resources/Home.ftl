@@ -63,7 +63,7 @@
 									<th>Author</th>
 									<th>Category</th>
 									<th>Publish Year</th>
-									<th>Actions</th>
+									
 								</tr>
 							</thead>
 							<tbody>
@@ -74,7 +74,7 @@
 									<td>${b.author}</td>
 									<td>${b.categories[0].categoryName!''}</td>
 									<td>${b.yearPublished?c}</td>
-									<td><a href="#">View</a></td>
+									
 								</tr>
 								</#list>
 							</tbody>
