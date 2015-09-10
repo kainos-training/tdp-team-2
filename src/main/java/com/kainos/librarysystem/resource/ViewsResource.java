@@ -3,6 +3,8 @@ package com.kainos.librarysystem.resource;
 import io.dropwizard.views.View;
 
 import java.sql.SQLException;
+import java.util.List;
+
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -15,12 +17,22 @@ import javax.ws.rs.core.UriBuilder;
 
 import com.codahale.metrics.annotation.Timed;
 import com.kainos.librarysystem.database.LibraryConnector;
+import com.kainos.librarysystem.model.Book;
 import com.kainos.librarysystem.views.AddBookView;
 import com.kainos.librarysystem.views.Home;
 import com.kainos.librarysystem.views.Index;
 
+
 @Path("/")
 public class ViewsResource {
+	
+	LibraryConnector dbConnector;
+	
+	public ViewsResource(LibraryConnector dbConnector){ 
+		this.dbConnector = dbConnector;
+	}
+	
+
 
 	public ViewsResource() {
 	}
@@ -38,10 +50,12 @@ public class ViewsResource {
 	@Timed
 	@Path("/Home")
 	@Produces(MediaType.TEXT_HTML)
-	public View Home() {
-
-		return new Home();
-
+	public View Home() throws SQLException{
+		
+		List<Book> books = dbConnector.getBooks();
+		
+		return new Home(books);
+	
 	}
 
 	@GET
@@ -59,11 +73,13 @@ public class ViewsResource {
 			@FormParam("author") String author, @FormParam("year") String year,
 			@FormParam("catId") String catId) throws SQLException {
 
+		/*
 		LibraryConnector lc = new LibraryConnector(
 				"jdbc:mysql://localhost/LibraryDB", "libraryuser",
 				"librarypassword");
-
-		lc.addBook(title, author, year, catId);
+*/ 
+		
+		dbConnector.addBook(title, author, year, catId);
 
 		Response response = null;
 		
@@ -74,7 +90,9 @@ public class ViewsResource {
 			response.seeOther(UriBuilder.fromUri("add-book").build()).build();
 		}
 
-		return new Home();
+		List<Book> books = dbConnector.getBooks();
+		
+		return new Home(books);
+	}
 
 	}
-}

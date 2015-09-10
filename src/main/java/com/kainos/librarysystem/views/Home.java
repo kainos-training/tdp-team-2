@@ -12,21 +12,16 @@ import com.kainos.librarysystem.model.Category;
 
 public class Home extends View {
 
-	public Home() {
+	private List<Book> books;
+	
+	public Home(List<Book> books) {
 		super("/Home.ftl");
-		// TODO Auto-generated constructor stub
+		
+		this.books = books;
 	}
 	
 	public List<Book> getBooks (){
 		
-		LibraryConnector libConnector = new LibraryConnector("jdbc:mysql://localhost/LibraryDB", "libraryuser", "librarypassword");
-		List<Book> books = new ArrayList<Book>();
-		
-		try {
-			books = libConnector.getBooks();
-		} catch (SQLException e) {
-			System.err.println("Error in Home.getBooks() " + e.getMessage());
-		}
 		
 		return books;
 	}

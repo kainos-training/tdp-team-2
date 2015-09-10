@@ -2,6 +2,7 @@ package com.kainos.librarysystem;
 
 import com.google.common.collect.ImmutableMap;
 import com.kainos.librarysystem.configuration.LibrarySystemConfiguration;
+import com.kainos.librarysystem.database.LibraryConnector;
 import com.kainos.librarysystem.resource.ViewsResource;
 
 import io.dropwizard.Application;
@@ -20,7 +21,9 @@ public class LibrarySystemApplication extends Application<LibrarySystemConfigura
 	@Override
 	public void run(LibrarySystemConfiguration configuration, Environment environment)
 			throws Exception {
-		final ViewsResource resource = new ViewsResource();
+		LibraryConnector dbConnector = new LibraryConnector("jdbc:mysql://localhost/LibraryDB", "libraryuser", "librarypassword");
+		
+		final ViewsResource resource = new ViewsResource(dbConnector);
 		environment.jersey().register(resource);
 	}
 	
