@@ -1,5 +1,10 @@
 package com.kainos.librarysystem.resource;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 import io.dropwizard.views.View;
 
 import javax.ws.rs.GET;
@@ -12,6 +17,7 @@ import com.codahale.metrics.annotation.Timed;
 import com.kainos.librarysystem.views.AddBookView;
 import com.kainos.librarysystem.views.Index;
 import com.kainos.librarysystem.views.Home;
+
 
 @Path("/")
 public class ViewsResource {

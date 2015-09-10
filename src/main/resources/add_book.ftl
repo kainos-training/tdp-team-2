@@ -76,6 +76,7 @@
                       <div class="form-group">
                           <label for="category">Category &#42;</label>
                           <select id="category" name="select" class="form-control medium">
+                              <option value="" disabled selected>Please Select Category</option>
                               <option value="1">Leadership & Management</option>
                               <option value="2">Project Execution</option>
                               <option value="3">Technical</option>                          
@@ -83,7 +84,7 @@
                       </div>
                       <div class="form-group">
                           <label for="date">Publish date:</label>
-                          <input type="date" class="form-control small" id="date"  maxlength="4" pattern="[0-9.]+">
+                          <input type="title" class="form-control small" id="date" minlength="4" maxlength="4" pattern="[0-9.]+">
                       </div>
                             
                       <div class="button-group">

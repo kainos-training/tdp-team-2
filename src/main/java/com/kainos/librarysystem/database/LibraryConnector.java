@@ -2,6 +2,7 @@ package com.kainos.librarysystem.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,7 +22,7 @@ public class LibraryConnector {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	public List<Category> getCategories() throws SQLException {
@@ -43,30 +44,66 @@ public class LibraryConnector {
 		List<Book> books = new ArrayList<Book>();
 
 		Statement st = c.createStatement();
-		ResultSet rs = st
-				.executeQuery("SELECT Book.Title, "
-						+ 	  "Book.Author, "
-						+ 	  "Book.YearPublished, "
-						+     "Category.CategoryName, "
-						+     "Category.CategoryID FROM Book "
-						+     "LEFT JOIN BookCategory ON "
-						+ 	  "BookCategory.BookID = Book.BookID "
-						+     "LEFT JOIN Category on "
-						+     "Category.CategoryID = BookCategory.CategoryID;");
-		
+		ResultSet rs = st.executeQuery("SELECT Book.Title, " + "Book.Author, "
+				+ "Book.YearPublished, " + "Category.CategoryName, "
+				+ "Category.CategoryID FROM Book "
+				+ "LEFT JOIN BookCategory ON "
+				+ "BookCategory.BookID = Book.BookID "
+				+ "LEFT JOIN Category on "
+				+ "Category.CategoryID = BookCategory.CategoryID;");
+
 		while (rs.next()) {
-			
+
 			List<Category> categories = new ArrayList<Category>();
 			Book bookToAdd = new Book(rs.getString("Title"),
 					rs.getString("Author"), rs.getInt("YearPublished"));
 
-			categories.add(new Category(rs.getInt("CategoryID"), rs.getString("CategoryName")));
+			categories.add(new Category(rs.getInt("CategoryID"), rs
+					.getString("CategoryName")));
 			bookToAdd.setCategories(categories);
 
 			books.add(bookToAdd);
 		}
 		st.close();
 		return books;
+	}
+
+	@SuppressWarnings("unused")
+	public void addBook(String title, String author, String yearPublished,
+			String catId) throws SQLException {
+
+		// the mysql insert statement
+		String query = " INSERT INTO Book (Title, Author, YearPublished)"
+				+ " VALUES (?, ?, ?);";
+
+		// create the mysql insert preparedstatement
+		PreparedStatement preparedStmt;
+		preparedStmt = c.prepareStatement(query,
+				Statement.RETURN_GENERATED_KEYS);
+		preparedStmt.setString(1, title);
+		preparedStmt.setString(2, author);
+		preparedStmt.setString(3, yearPublished);
+
+		// execute the preparedstatement
+		preparedStmt.execute();
+
+		ResultSet rs = null;
+		rs = preparedStmt.getGeneratedKeys();
+		int bookId = -1;
+
+		rs.first();
+		bookId = rs.getInt(1);
+
+		// create the mysql insert preparedstatement
+		String queryAddBookCat = " INSERT INTO BookCategory (BookID, CategoryID)"
+				+ " VALUES (?, ?);";
+		PreparedStatement preparedStmtAddBookCat;
+		preparedStmtAddBookCat = c.prepareStatement(queryAddBookCat);
+		preparedStmtAddBookCat.setInt(1, bookId);
+		preparedStmtAddBookCat.setInt(2, Integer.parseInt(catId));
+
+		// execute the preparedstatement
+		preparedStmtAddBookCat.executeUpdate();
 	}
 
 }
