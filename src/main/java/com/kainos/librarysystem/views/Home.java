@@ -2,9 +2,11 @@ package com.kainos.librarysystem.views;
 
 import io.dropwizard.views.View;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.kainos.librarysystem.database.LibraryConnector;
 import com.kainos.librarysystem.model.Book;
 import com.kainos.librarysystem.model.Category;
 
@@ -15,23 +17,18 @@ public class Home extends View {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public ArrayList<Book> getBooks (){
-		ArrayList Books = new ArrayList();
-//		Book b = new Book(0, templateName, templateName, 0);
-//		
-//		List<Category> assignedCategory = new ArrayList<Category>();
-//		Category c = new Category("Technical");
-//		
-//		
-//		b.setAuthor("Martin");
-//		b.setTitle("Java is Cool");
-//		b.setCategories(assignedCategory);
-//		b.setYearPublished(2010);
+	public List<Book> getBooks (){
 		
+		LibraryConnector libConnector = new LibraryConnector("jdbc:mysql://localhost/LibraryDB", "libraryuser", "librarypassword");
+		List<Book> books = new ArrayList<Book>();
 		
+		try {
+			books = libConnector.getBooks();
+		} catch (SQLException e) {
+			System.err.println("Error in Home.getBooks() " + e.getMessage());
+		}
 		
-		
-		return Books;
+		return books;
 	}
 	 
 

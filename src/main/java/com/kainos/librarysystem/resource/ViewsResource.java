@@ -30,6 +30,7 @@ public class ViewsResource {
 	@Path("/Home")
 	@Produces(MediaType.TEXT_HTML)
 	public View Home(){
+		
 		return new Home();
 	
 	}
