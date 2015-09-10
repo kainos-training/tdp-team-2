@@ -10,6 +10,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
 
 import com.codahale.metrics.annotation.Timed;
 import com.kainos.librarysystem.database.LibraryConnector;
@@ -63,11 +65,13 @@ public class ViewsResource {
 
 		lc.addBook(title, author, year, catId);
 
-		if (title.isEmpty() || author.isEmpty()) {
+		Response response = null;
 		
+		if (title.isEmpty() || author.isEmpty()) {
+			response.seeOther(UriBuilder.fromUri("add-book").build()).build();
 		}
 		if(catId.equals("-1")){
-			getAddBook();
+			response.seeOther(UriBuilder.fromUri("add-book").build()).build();
 		}
 
 		return new Home();
