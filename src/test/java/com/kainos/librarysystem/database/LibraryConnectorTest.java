@@ -11,34 +11,33 @@ import org.junit.Test;
 import com.kainos.librarysystem.model.Book;
 
 public class LibraryConnectorTest {
-	
+
 	LibraryConnector lc = new LibraryConnector(
 			"jdbc:mysql://localhost/LibraryDB", "libraryuser",
 			"librarypassword");
-	
+
 	@Test
 	public void testCanGetBooksFromDatabase() {
 
-		
 		List<Book> books = new ArrayList<Book>();
-		
+
 		try {
 			books = new ArrayList<Book>(lc.getBooks());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		assertFalse(books.size() == 0);
 	}
 	
 	@Test
 	public void canAddBooks() {
 		try {
-		lc.addBook("TestTitle", "TestAuthor", "2015", "1");
+		lc.addBook("TestTitleWithCat", "TestAuthor", "2015", "1");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
 	}
-	
+
 }
