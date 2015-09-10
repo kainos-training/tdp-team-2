@@ -75,16 +75,16 @@
                       </div> 
                       <div class="form-group">
                           <label for="category">Category &#42;</label>
-                          <select id="category" name="select" class="form-control medium">
-                              <option value="" disabled selected>Please Select Category</option>
+                          <select id="catId" name="catId" class="form-control medium">
+                              <option value="-1" disabled selected>Please Select Category</option>
                               <option value="1">Leadership & Management</option>
                               <option value="2">Project Execution</option>
                               <option value="3">Technical</option>                          
                           </select>
                       </div>
                       <div class="form-group">
-                          <label for="date">Publish date:</label>
-                          <input type="title" class="form-control small" id="date" minlength="4" maxlength="4" pattern="[0-9.]+">
+                          <label for="date">Publish Year</label>
+                          <input type="title" class="form-control small" name="year" id="year" minlength="4" maxlength="4" pattern="[0-9.]+">
                       </div>
                             
                       <div class="button-group">

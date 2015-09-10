@@ -9,6 +9,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.FormParam;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+
+import com.codahale.metrics.annotation.Timed;
 import com.kainos.librarysystem.model.Book;
 import com.kainos.librarysystem.model.Category;
 
@@ -68,42 +73,45 @@ public class LibraryConnector {
 		return books;
 	}
 
-	@SuppressWarnings("unused")
-	public void addBook(String title, String author, String yearPublished,
-			String catId) throws SQLException {
+	@POST
+    @Timed
+    @Path("add-book")
+    public void addBook(@FormParam("title") String title, @FormParam("author") String author, 
+            @FormParam("yearPublished") String yearPublished,
+            @FormParam("catId") String catId) throws SQLException {
 
-		// the mysql insert statement
-		String query = " INSERT INTO Book (Title, Author, YearPublished)"
-				+ " VALUES (?, ?, ?);";
+        // the mysql insert statement
+        String query = " INSERT INTO Book (Title, Author, YearPublished)"
+                + " VALUES (?, ?, ?);";
 
-		// create the mysql insert preparedstatement
-		PreparedStatement preparedStmt;
-		preparedStmt = c.prepareStatement(query,
-				Statement.RETURN_GENERATED_KEYS);
-		preparedStmt.setString(1, title);
-		preparedStmt.setString(2, author);
-		preparedStmt.setString(3, yearPublished);
+        // create the mysql insert preparedstatement
+        PreparedStatement preparedStmt;
+        preparedStmt = c.prepareStatement(query,
+                Statement.RETURN_GENERATED_KEYS);
+        preparedStmt.setString(1, title);
+        preparedStmt.setString(2, author);
+        preparedStmt.setString(3, yearPublished);
 
-		// execute the preparedstatement
-		preparedStmt.execute();
+        // execute the preparedstatement
+        preparedStmt.execute();
 
-		ResultSet rs = null;
-		rs = preparedStmt.getGeneratedKeys();
-		int bookId = -1;
+        ResultSet rs = null;
+        rs = preparedStmt.getGeneratedKeys();
+        int bookId = -1;
 
-		rs.first();
-		bookId = rs.getInt(1);
+        rs.first();
+        bookId = rs.getInt(1);
 
-		// create the mysql insert preparedstatement
-		String queryAddBookCat = " INSERT INTO BookCategory (BookID, CategoryID)"
-				+ " VALUES (?, ?);";
-		PreparedStatement preparedStmtAddBookCat;
-		preparedStmtAddBookCat = c.prepareStatement(queryAddBookCat);
-		preparedStmtAddBookCat.setInt(1, bookId);
-		preparedStmtAddBookCat.setInt(2, Integer.parseInt(catId));
+        // create the mysql insert preparedstatement
+        String queryAddBookCat = " INSERT INTO BookCategory (BookID, CategoryID)"
+                + " VALUES (?, ?);";
+        PreparedStatement preparedStmtAddBookCat;
+        preparedStmtAddBookCat = c.prepareStatement(queryAddBookCat);
+        preparedStmtAddBookCat.setInt(1, bookId);
+        preparedStmtAddBookCat.setInt(2, Integer.parseInt(catId));
 
-		// execute the preparedstatement
-		preparedStmtAddBookCat.executeUpdate();
-	}
+        // execute the preparedstatement
+        preparedStmtAddBookCat.executeUpdate();
+    }
 
 }
