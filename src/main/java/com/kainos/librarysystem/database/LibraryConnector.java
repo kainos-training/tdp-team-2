@@ -104,9 +104,6 @@ public class LibraryConnector {
 
 		// execute the preparedstatement
 		preparedStmtAddBookCat.executeUpdate();
-
-		// close con
-		c.close();
 	}
 
 }

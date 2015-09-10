@@ -32,8 +32,33 @@ public class LibraryConnectorTest {
 	
 	@Test
 	public void canAddBooks() {
+		java.util.Date date = new java.util.Date();
+		Long timestamp = date.getTime();
+		String bookTitle = "Test Title " + timestamp.toString();
+		
 		try {
-		lc.addBook("TestTitleWithCat", "TestAuthor", "2015", "1");
+		lc.addBook(bookTitle, "TestAuthor", "2015", "1");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			assertFalse("SQL Exception thrown", true);
+		}
+		
+		// Check new book is added to DB 
+		try {
+			List<Book> books = new ArrayList<Book>();
+			books = new ArrayList<Book>(lc.getBooks());
+			
+			boolean bookFound = false;
+			for (Book bookResult : books)
+			{
+				String titleResult = bookResult.getTitle();
+				if (titleResult.equals(bookResult))
+				{
+					bookFound = true;
+				}
+				
+			}
+			assertFalse("Book not added to database", bookFound);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
