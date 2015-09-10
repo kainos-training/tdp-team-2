@@ -2,6 +2,7 @@ package com.kainos.librarysystem.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -67,4 +68,25 @@ public class LibraryConnector {
 		return books;
 	}
 
+	
+public void addBook(String title, String author, String yearPublished, String catId) throws SQLException {
+		
+		  
+		 // the mysql insert statement
+	      String query = " insert into Book (Title, Author, YearPublished)"
+	        + " values (?, ?, ?)";
+	 
+	      // create the mysql insert preparedstatement
+	      PreparedStatement preparedStmt = c.prepareStatement(query);
+	      preparedStmt.setString (1, title);
+	      preparedStmt.setString (2, author);
+	      preparedStmt.setString (3, yearPublished);
+	      
+	      // execute the preparedstatement
+	      preparedStmt.execute();
+	      
+	      // close con
+	      c.close();	
+	}
+	
 }

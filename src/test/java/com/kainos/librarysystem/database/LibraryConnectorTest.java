@@ -31,4 +31,14 @@ public class LibraryConnectorTest {
 		assertFalse(books.size() == 0);
 	}
 	
+	@Test
+	public void canAddBooks() {
+		try {
+		lc.addBook("TestTitle", "TestAuthor", "2015", "1");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 }
