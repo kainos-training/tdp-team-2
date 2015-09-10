@@ -27,7 +27,7 @@
 				</div>
 				<ul class="nav nav-pills pull-right">
 					<li role="presentation" class="active"><a href="#">Home</a></li>
-					<li role="presentation"><a href="add_book.ftl">Add a book</a></li>
+					<li role="presentation"><a href="/add-book">Add a book</a></li>
 				</ul>
 			</div>
 		</nav>
