@@ -50,11 +50,19 @@
           
           </div>
         
-           <div class="container">
+           <div class="container books">
               <div class="row">  
+                  <div class="col-md-12">
+                      <div class="alert alert-success" role="alert">
+                          <p>
+                              <i class="glyphicon glyphicon-ok"></i>Book has been succesfully added.
+                              <span class="pull-right"><i class="glyphicon glyphicon-remove"></i></span>
+                          </p>
+                      </div>
+                  </div> 
                   <div class="col-md-12">   
                       <div class="table-responsive">
-                          <table class="table table-striped bookTable">
+                          <table class="table table-striped bookTable" id="dataTable">
                               <thead>
                                   <tr>
                                       <th>Title</th>
@@ -88,5 +96,11 @@
       </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+     <script src="js/jquery.dataTables.min.js"></script>
+      <script type="text/javascript">
+          $(document).ready(function() {
+            $('#dataTable').DataTable();
+          } );
+      </script>
   </body>
 </html>
