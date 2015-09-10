@@ -9,7 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.codahale.metrics.annotation.Timed;
-import com.kainos.librarysystem.views.AddBook;
+import com.kainos.librarysystem.views.AddBookView;
 import com.kainos.librarysystem.views.Index;
 
 @Path("/")
@@ -30,6 +30,6 @@ public class ViewsResource {
 	@Path("/add-book")
 	@Produces(MediaType.TEXT_HTML)
 	public View getAddBook(){
-		return new AddBook();
+		return new AddBookView();
 	}
 }
