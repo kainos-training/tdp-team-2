@@ -6,8 +6,8 @@
     <title>Kainos book store</title>
     <!-- Bootstrap -->
     <link href="assets/stylesheets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- JavaScript -->
-    <script type="text/javascript" src="assets/javascripts/Validation.js"></script>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!--Overwrites-->
     <link href="assets/stylesheets/styles.css" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -60,39 +60,32 @@
                       
                         <form action="add-book" method="POST" role="form">
                       <div class="form-group">
-                          <label for="title">Book Title &#42;</label>
+                          <label for="title">Book title &#42;</label>
                           <input type="title" class="form-control medium" id="title" name="title" required>
-                         <span class="errortext">
-                              <i class="glyphicon glyphicon-info-sign" id="titleError"></i>
-                              You did not include a book title
-                          </span> 
+                         
                       </div>
                       <div class="form-group">
                           <label for="author">Author &#42;</label>
                           <input type="author" class="form-control small" id="author" name="author" required>
-                         <span class="errortext">
-                              <i class="glyphicon glyphicon-info-sign" id="authorError"></i>
-                              You did not include the Authors name
-                          </span>
+                        
                       </div> 
                       <div class="form-group">
                           <label for="category">Category &#42;</label>
-                          <select id="catId" name="catId" class="form-control medium">
-                              <option value="-1" disabled selected>Please Select Category</option>
+                          <select id="catId" name="catId" class="form-control medium" required>
+                              <option disabled selected>Please Select Category</option>
                               <option value="1">Leadership & Management</option>
                               <option value="2">Project Execution</option>
                               <option value="3">Technical</option>                          
                           </select>
                       </div>
                       <div class="form-group">
-                          <label for="date">Publish Year</label>
+                          <label for="date">Publish year</label>
                           <input type="title" class="form-control small" name="year" id="year" minlength="4" maxlength="4" pattern="[0-9.]+">
                       </div>
                             
                       <div class="button-group">
-                          <button type="submit" class="btn btn-default">Cancel</button>
-                          <input type="submit" class="btn btn-primary">
-                            
+                          <button type="submit" class="btn btn-default">Reset</button>
+                          <button type="submit" class="btn btn-primary">Add book </button> 
                       </div>
                    
                       
@@ -110,7 +103,7 @@
       
           </div>
       </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    
+    <script src="assets/stylesheets/bootstrap/js/bootstrap.min.js"></script>
     
   </body>
