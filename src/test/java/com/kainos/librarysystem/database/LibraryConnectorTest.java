@@ -11,19 +11,20 @@ import org.junit.Test;
 import com.kainos.librarysystem.model.Book;
 
 public class LibraryConnectorTest {
-
+	
+	LibraryConnector lc = new LibraryConnector(
+			"jdbc:mysql://localhost/LibraryDB", "libraryuser",
+			"librarypassword");
+	
 	@Test
 	public void testCanGetBooksFromDatabase() {
-		LibraryConnector lc = new LibraryConnector(
-				"jdbc:mysql://localhost/LibraryDB", "libraryuser",
-				"librarypassword");
+
 		
 		List<Book> books = new ArrayList<Book>();
 		
 		try {
 			books = new ArrayList<Book>(lc.getBooks());
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

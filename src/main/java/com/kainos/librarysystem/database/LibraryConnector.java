@@ -13,14 +13,8 @@ import com.kainos.librarysystem.model.Category;
 
 public class LibraryConnector {
 	private Connection c;
-	private Class driver;
 
 	public LibraryConnector(String uri, String userName, String password) {
-		try {
-			driver = Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
 
 		try {
 			c = DriverManager.getConnection(uri, userName, password);
@@ -31,12 +25,11 @@ public class LibraryConnector {
 	}
 
 	public List<Category> getCategories() throws SQLException {
-		
+
 		List<Category> categories = new ArrayList<Category>();
-		
+
 		Statement st = c.createStatement();
-		ResultSet rs = st
-				.executeQuery("SELECT CategoryName FROM Category");
+		ResultSet rs = st.executeQuery("SELECT CategoryName FROM Category");
 		while (rs.next()) {
 			Category categoryToAdd = new Category(rs.getString("CategoryName"));
 			categories.add(categoryToAdd);
@@ -45,18 +38,33 @@ public class LibraryConnector {
 	}
 
 	public List<Book> getBooks() throws SQLException {
-		
+
 		List<Book> books = new ArrayList<Book>();
-		
+
 		Statement st = c.createStatement();
 		ResultSet rs = st
-				.executeQuery("SELECT Title, Author, YearPublished FROM Book");
+				.executeQuery("SELECT Book.Title, "
+						+ 	  "Book.Author, "
+						+ 	  "Book.YearPublished, "
+						+     "Category.CategoryName, "
+						+     "Category.CategoryID FROM Book "
+						+     "LEFT JOIN BookCategory ON "
+						+ 	  "BookCategory.BookID = Book.BookID "
+						+     "LEFT JOIN Category on "
+						+     "Category.CategoryID = BookCategory.CategoryID;");
 		
 		while (rs.next()) {
-			Book bookToAdd = new Book(rs.getString("Title"), rs.getString("Author"));
-			bookToAdd.setYearPublished(rs.getInt("YearPublished"));
+			
+			List<Category> categories = new ArrayList<Category>();
+			Book bookToAdd = new Book(rs.getString("Title"),
+					rs.getString("Author"), rs.getInt("YearPublished"));
+
+			categories.add(new Category(rs.getInt("CategoryID"), rs.getString("CategoryName")));
+			bookToAdd.setCategories(categories);
+
 			books.add(bookToAdd);
 		}
 		return books;
 	}
+
 }
