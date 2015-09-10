@@ -7,6 +7,7 @@ public class Book {
 	private String title, author;
 	private List<Category> categories;
 	private int yearPublished, bookID;
+	private int rating;
 
 	public Book(String title, String author){
 		this.title=title;
@@ -67,11 +68,17 @@ public class Book {
 		this.yearPublished = yearPublished;
 	}
 
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
 	@Override
 	public String toString() {
 		return "Book [title=" + title + ", author=" + author + ", categories="
 				+ categories + ", yearPublished=" + yearPublished + "]";
 	}
-	
-
 }

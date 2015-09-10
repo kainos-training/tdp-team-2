@@ -97,13 +97,16 @@ UNLOCK TABLES;
 -- Table structure for table `Rating`
 --
 
+
 DROP TABLE IF EXISTS `Rating`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Rating` (
+  `RatingID` int(11) NOT NULL AUTO_INCREMENT,
   `BookID` int(11) NOT NULL,
   `Rating` tinyint(4) NOT NULL,
-  PRIMARY KEY (`BookID`),
+  PRIMARY KEY (`RatingID`),
+  KEY `BookID_idx` (`BookID`),
   CONSTRAINT `RatingBookID` FOREIGN KEY (`BookID`) REFERENCES `Book` (`BookID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -116,7 +119,6 @@ LOCK TABLES `Rating` WRITE;
 /*!40000 ALTER TABLE `Rating` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Rating` ENABLE KEYS */;
 UNLOCK TABLES;
-
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
