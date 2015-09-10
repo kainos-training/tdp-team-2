@@ -125,8 +125,17 @@ form{
         &:hover{
             background-image: linear-gradient(-180deg, darken(#00AA4D,10%) 0%, darken(#96C842,10%) 100%);     
         }
+    }    
+}
+
+/* Alerts 
+--------------------------------------------------- */
+
+.books .alert{
+    margin-top:30px;
+    i:first-of-type{
+        padding-right: 15px; 
     }
-        
 }
 
 
