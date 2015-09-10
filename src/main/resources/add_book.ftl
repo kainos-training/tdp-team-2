@@ -74,8 +74,8 @@
                           <select id="catId" name="catId" class="form-control medium" required>
                               <option disabled selected>Please Select Category</option>
                               <option value="1">Leadership & Management</option>
-                              <option value="2">Project Execution</option>
-                              <option value="3">Technical</option>                          
+                              <option value="3">Project Execution</option>
+                              <option value="2">Technical</option>                          
                           </select>
                       </div>
                       <div class="form-group">
