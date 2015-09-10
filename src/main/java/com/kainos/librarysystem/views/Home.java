@@ -17,18 +17,19 @@ public class Home extends View {
 	
 	public ArrayList<Book> getBooks (){
 		ArrayList Books = new ArrayList();
-		Book b = new Book();
+//		Book b = new Book(0, templateName, templateName, 0);
+//		
+//		List<Category> assignedCategory = new ArrayList<Category>();
+//		Category c = new Category("Technical");
+//		
+//		
+//		b.setAuthor("Martin");
+//		b.setTitle("Java is Cool");
+//		b.setCategories(assignedCategory);
+//		b.setYearPublished(2010);
 		
-		List<Category> assignedCategory = new ArrayList<Category>();
-		Category c = new Category("Technical");
 		
 		
-		b.setAuthor("Martin");
-		b.setTitle("Java is Cool");
-		b.setCategories(assignedCategory);
-		b.setYearPublished(2010);
-		
-		Books.add(b);
 		
 		return Books;
 	}
