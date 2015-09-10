@@ -84,8 +84,7 @@
                       </div>
                             
                       <div class="button-group">
-                          <button type="submit" class="btn btn-default">Reset</button>
-                          <button type="submit" class="btn btn-primary">Add book </button> 
+                          <button type="submit" class="btn btn-primary">Add book</button> 
                       </div>
                    
                       
