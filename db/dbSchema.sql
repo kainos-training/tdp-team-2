@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS drill-team2;
-CREATE DATABASE drill-team2;
+DROP DATABASE IF EXISTS team2;
+CREATE DATABASE team2;
 
-USE drill-team2;
+USE team2;
