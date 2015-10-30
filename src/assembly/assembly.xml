@@ -24,7 +24,7 @@
   </fileSets>
   <files>
     <file>
-      <source>LibrarySystemConfiguration.yml</source>
+      <source>ProjectDrillConfiguration.yml</source>
       <outputDirectory>/</outputDirectory>
       <filtered>true</filtered>
     </file>
