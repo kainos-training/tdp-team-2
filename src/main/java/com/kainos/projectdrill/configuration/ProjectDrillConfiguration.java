@@ -1,4 +1,4 @@
-package com.kainos.librarysystem.configuration;
+package com.kainos.projectdrill.configuration;
 
 import java.util.Map;
 import javax.validation.constraints.NotNull;
@@ -8,7 +8,7 @@ import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.collect.ImmutableMap;
 
-public class LibrarySystemConfiguration extends Configuration {
+public class ProjectDrillConfiguration extends Configuration {
 	
 	@NotNull
     private ImmutableMap<String, ImmutableMap<String, String>> viewRendererConfiguration = ImmutableMap.of();

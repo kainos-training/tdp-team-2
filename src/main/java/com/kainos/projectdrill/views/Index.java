@@ -1,4 +1,4 @@
-package com.kainos.librarysystem.views;
+package com.kainos.projectdrill.views;
 
 import io.dropwizard.views.View;
 

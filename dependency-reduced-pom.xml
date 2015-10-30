@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.kainos</groupId>
-  <artifactId>TDP-2-LibrarySystem</artifactId>
+  <artifactId>TDP-3-Project-Drill</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
@@ -28,7 +28,7 @@
               <transformers>
                 <transformer />
                 <transformer>
-                  <mainClass>com.kainos.librarysystem.LibrarySystemApplication</mainClass>
+                  <mainClass>com.kainos.projectdrill.ProjectDrillApplication</mainClass>
                 </transformer>
               </transformers>
             </configuration>

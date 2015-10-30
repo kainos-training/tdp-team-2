@@ -1,4 +1,4 @@
-package com.kainos.librarysystem.resource;
+package com.kainos.projectdrill.resource;
 
 import io.dropwizard.views.View;
 
@@ -8,7 +8,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.codahale.metrics.annotation.Timed;
-import com.kainos.librarysystem.views.Index;
+import com.kainos.projectdrill.views.Index;
 
 @Path("/")
 public class ViewsResource {
