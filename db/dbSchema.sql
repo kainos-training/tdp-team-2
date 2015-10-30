@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS drill;
+CREATE DATABASE drill;
+
+USE drill;
