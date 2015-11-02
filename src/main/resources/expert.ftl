@@ -13,12 +13,11 @@
 		<h3>Language</h3>
 	
 		<form action="addExpert" type="post">
-		
-		<label>Name</label>	
-		<input type="text" name="name">
-		
-		<input type="submit" name="submitExpert">
-		
+		<div class="form-group>
+			<label class="form-label" for="name">Name</label>	
+			<input class="form-control" type="text" name="name">
+		</div>
+			<input type="submit" name="submitExpert">
 		</form>
 
 	</main>

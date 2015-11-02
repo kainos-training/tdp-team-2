@@ -9,17 +9,25 @@
 	
 	<main id="content" role="main">
 	
-	<h1>Fill with Framework Name</h1>
+	<h1>Ruby on Rails</h1>
 	
-	<h4>Language: ---fill language----</h4>
+	<h4>Language: Ruby</h4>
 	
-	<h4>Experts who used this framework</h4>
+	<table class="table table-striped">
 	
-	<ul class="list-group">
-  		<li class="list-group-item">--Name 1--</li>
- 		<li class="list-group-item">--Name 2--</li>
- 		<li class="list-group-item">--Name 3--</li>
-	</ul>
+	<th>Experts who used this framework</th>
+	<tr>
+  		<td class="list-group-item">Benjamin Franklin</td>
+  	</tr>
+  	<tr>
+ 		<td class="list-group-item">Ziggy Stardust</td>
+ 	</tr>
+ 	<tr>
+ 		<td class="list-group-item">--Name 3--</td>
+	</tr>
+	</table>
+	
+
 	
 
 	</main>
