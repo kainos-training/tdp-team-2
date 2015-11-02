@@ -4,10 +4,13 @@ CREATE DATABASE team2;
 USE team2;
 
 
+DROP TABLE IF EXISTS `languages`;
 CREATE TABLE languages (
 ID int(11) PRIMARY KEY Auto_INCREMENT,
 Name varchar(50)
 );
+
+DROP TABLE IF EXISTS `frameworks`;
 CREATE TABLE frameworks (
 ID int(11) PRIMARY KEY AUTO_INCREMENT,
 Name varchar(50),
@@ -47,5 +50,6 @@ CREATE TABLE `Framework_User` (
   `frameworkid` int(11) NOT NULL,
   PRIMARY KEY (`userid`,`frameworkid`),
   KEY `fk_Framework_User_Framework_idx` (`frameworkid`),
+  CONSTRAINT `fk_User_Framework_User` FOREIGN KEY (`userid`) REFERENCES `User` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Framework_User_Framework` FOREIGN KEY (`frameworkid`) REFERENCES `frameworks` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
