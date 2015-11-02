@@ -8,14 +8,17 @@
             <main id="content" role="main" class="">
                 <h1>Framework list</h1>
                 <table class="table table-condensed">
+ 
                     <tr>
                         <th>Framework</th>
                         <th>Implementation Language</th>
                     </tr>
+                   <#list frameworks as framework>
                     <tr>
-                        <td>Spring</td>
-                        <td>Java</td>
+            			<td>${framework.frameworkName}</td>
+                        <td>${framework.frameworkLanguage}</td>
                     </tr>
+                  </#list>
                 </table>
             </main>
         </div>

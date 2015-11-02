@@ -3,6 +3,10 @@
  */
 package com.kainos.projectdrill.views;
 
+import java.util.List;
+
+import com.kainos.projectdrill.models.Framework;
+
 import io.dropwizard.views.View;
 
 /**
@@ -10,10 +14,23 @@ import io.dropwizard.views.View;
  *
  */
 public class Frameworks extends View {
-
-	public Frameworks() {
-		
+	
+	private List<Framework> frameworks;
+	
+	public Frameworks(List<Framework> frameworks) {	
 		super("/frameworks.ftl");
+		this.frameworks = frameworks;
 	}
+
+	public List<Framework> getFrameworks() {
+		return frameworks;
+	}
+
+	public void setFrameworks(List<Framework> frameworks) {
+		this.frameworks = frameworks;
+	}
+	
+	
+	
 
 }
