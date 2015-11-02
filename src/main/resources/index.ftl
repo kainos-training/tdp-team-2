@@ -8,6 +8,7 @@
 	<main id="content" role="main">
 		<div>
 			<p>Hello world!</p>
+			<p>Nice to see you</p>
 		</div>
 		
 		<button onclick="sayHello()">Say Hello!</button>
