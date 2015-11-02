@@ -3,6 +3,7 @@ CREATE DATABASE team2;
 
 USE team2;
 
+
 CREATE TABLE languages (
 ID int(11) PRIMARY KEY Auto_INCREMENT,
 Name varchar(50)
@@ -32,3 +33,19 @@ INSERT INTO languages(Name)
 VALUES (name);
 end //
 DELIMITER ;
+
+DROP TABLE IF EXISTS `User`;
+CREATE TABLE `User` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+DROP TABLE IF EXISTS `Framework_User`;
+CREATE TABLE `Framework_User` (
+  `userid` int(11) NOT NULL,
+  `frameworkid` int(11) NOT NULL,
+  PRIMARY KEY (`userid`,`frameworkid`),
+  CONSTRAINT `fk_Framework_User_1` FOREIGN KEY (`userid`) REFERENCES `User` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
