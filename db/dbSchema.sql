@@ -46,6 +46,6 @@ CREATE TABLE `Framework_User` (
   `userid` int(11) NOT NULL,
   `frameworkid` int(11) NOT NULL,
   PRIMARY KEY (`userid`,`frameworkid`),
-  CONSTRAINT `fk_Framework_User_1` FOREIGN KEY (`userid`) REFERENCES `User` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fk_Framework_User_Framework_idx` (`frameworkid`),
+  CONSTRAINT `fk_Framework_User_Framework` FOREIGN KEY (`frameworkid`) REFERENCES `frameworks` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
-
