@@ -15,20 +15,20 @@
     <h3 class="heading-medium">Language: ---</h3>
 
 	<br>
-	    <table id="framework-summary" class="display table">
+	<table id="framework-summary" class="display table">
    	     <thead>
          	<tr>
             	<th>Experts who used this framework</th>
             </tr>
          </thead>
          <tbody>
-         	<#list userList as experts>
+         	<#list userList as user>
                     <tr>
-                        <td>${experts.Expert}</td>
+                        <td>${user.expert}</td>
                     </tr>
-                 </tbody>
              </#list>
-          </table>
+          </tbody>
+     </table>
     
 	</main>
 </html>

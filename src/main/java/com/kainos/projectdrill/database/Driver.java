@@ -113,18 +113,17 @@ public class Driver {
 		try{
 			
 			Statement create = connection.createStatement();
-			ResultSet result = create.executeQuery("select frameworks.Name AS name, User.id AS userId, User.name AS Expert, languages.Name AS language"+ 
+			ResultSet result = create.executeQuery("select frameworks.Name AS name, User.id AS userId, User.name AS expert, languages.Name AS language"+ 
 				"FROM frameworks "+
 				"JOIN Framework_User ON frameworks.ID = Framework_User.frameworkid "+
 				"JOIN User ON Framework_User.userid = User.id " +
 				"JOIN languages ON frameworks.Language = languages.ID " +
-				"WHERE frameworks.ID = " + id);
+				"WHERE frameworks.ID = " + id + ";");
 
 			int i = 0;
 			while(result.next()){
 				i++;
-				User newUser = new User(result.getInt("userId"), result.getString("Expert"), result.getString("name"), result.getString("language"));
-
+				User newUser = new User(result.getInt("userId"), result.getString("expert"));
 				frameworkSummaryArray.add(newUser);
 			}
 			System.out.println("SELECT DONE, RESULT SIZE : " + i);
