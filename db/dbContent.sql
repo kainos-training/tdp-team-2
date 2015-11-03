@@ -26,8 +26,14 @@ call addFramework("Sinatra",6);
 call addFramework("Ruby on Rails", 6);
 call addFramework("Drupal", 5);
 
--- call to get name of framework and language of framework
-
-
 INSERT INTO `User` VALUES (1,'Peadar'),(2,'Martin'),(3,'Josh'),(4,'Tanya');
+
+INSERT INTO `team2`.`Framework_User` (`userid`, `frameworkid`) VALUES ('1', '1');
+INSERT INTO `team2`.`Framework_User` (`userid`, `frameworkid`) VALUES ('1', '2');
+INSERT INTO `team2`.`Framework_User` (`userid`, `frameworkid`) VALUES ('2', '2');
+INSERT INTO `team2`.`Framework_User` (`userid`, `frameworkid`) VALUES ('2', '3');
+INSERT INTO `team2`.`Framework_User` (`userid`, `frameworkid`) VALUES ('3', '3');
+INSERT INTO `team2`.`Framework_User` (`userid`, `frameworkid`) VALUES ('3', '4');
+INSERT INTO `team2`.`Framework_User` (`userid`, `frameworkid`) VALUES ('4', '4');
+INSERT INTO `team2`.`Framework_User` (`userid`, `frameworkid`) VALUES ('4', '5');
 
