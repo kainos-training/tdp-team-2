@@ -2,7 +2,8 @@ GRANT USAGE ON *.* TO 'Team2User'@'localhost';
 DROP USER 'Team2User'@'localhost';
 CREATE USER 'Team2User'@'localhost' IDENTIFIED BY 'Team2Password';
 GRANT SELECT ON team2.* TO 'Team2User'@'localhost';
-GRANT INSERT ON team2.* TO 'Team2User'@'localhost'; 
+GRANT INSERT ON team2.* TO 'Team2User'@'localhost';
+GRANT ALL ON team2.* TO 'Team2User'@'localhost';
 
 DROP DATABASE IF EXISTS team2;
 CREATE DATABASE team2;

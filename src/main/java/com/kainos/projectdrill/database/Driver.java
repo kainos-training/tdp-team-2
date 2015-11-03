@@ -116,7 +116,7 @@ public class Driver {
 		try {
 			//SQL Statement to Add Framework
 			PreparedStatement addFrameworkStatement = connection.prepareStatement(
-					"CALL addFramework (Name, Language) Values(?, ?)");
+					"CALL addFramework(?, ?)");
 			addFrameworkStatement.setString(1,frameworkName);
 			addFrameworkStatement.setInt(2,languageId);
 

@@ -31,14 +31,14 @@
 
 		<div class="form-group">
 			<label class="form-label" for="framework-name">Framework name</label>
-			<input class="form-control" id="framework-name" type="text"
+			<input class="form-control" id="framework-name" type="text" name="framework-name"
 				placeholder="Enter the name of the framework">
 		</div>
 
 		<div class="form-group">
 			<label class="form-label" for="framework-language">Framework
 				language</label> 
-			<select class="form-control-select" id="framework-language">
+			<select class="form-control-select" id="framework-language" name="framework-language">
 				<option>Select a language</option>
 				
 				<#list languages as language>
@@ -56,6 +56,8 @@
 		-->
 
 		<div class="form-group">
+
+
 			<br>
 			<button id="submit" class="button" type="submit">Add
 				framework</button>
