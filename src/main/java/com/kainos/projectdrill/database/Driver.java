@@ -3,6 +3,7 @@ package com.kainos.projectdrill.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -50,6 +51,27 @@ public class Driver {
 			System.out.println("An error occurred.");
 			e.printStackTrace();
 			return frameworkArray;
+		}
+		
+	}
+	
+	public void addFramework(Framework framework, int languageId){
+		
+		connectToDatabase();
+		try {
+			//SQL Statement to Add Framework
+			PreparedStatement addFramework = connection.prepareStatement(
+					"addFramework (Name, Language) Values(?, ?)");
+			addFramework.setString(1,framework.getFrameworkName());
+			addFramework.setInt(2,languageId);
+
+			//Executing prepared statement
+			addFramework.executeUpdate();
+			System.out.println("Framework "+framework.getFrameworkName()+" has been added Successfully");
+			
+		} catch (SQLException e) {
+			System.out.println("Unable to create framework ");
+			e.printStackTrace();
 		}
 		
 	}
