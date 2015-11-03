@@ -56,19 +56,19 @@ public class Driver {
 		
 	}
 	
-	public void addFramework(Framework framework, int languageId){
+	public void addFramework(String frameworkName, int languageId){
 		
 		connectToDatabase();
 		try {
 			//SQL Statement to Add Framework
-			PreparedStatement addFramework = connection.prepareStatement(
-					"addFramework (Name, Language) Values(?, ?)");
-			addFramework.setString(1,framework.getFrameworkName());
-			addFramework.setInt(2,languageId);
+			PreparedStatement addFrameworkStatement = connection.prepareStatement(
+					"CALL addFramework (Name, Language) Values(?, ?)");
+			addFrameworkStatement.setString(1,frameworkName);
+			addFrameworkStatement.setInt(2,languageId);
 
 			//Executing prepared statement
-			addFramework.executeUpdate();
-			System.out.println("Framework "+framework.getFrameworkName()+" has been added Successfully");
+			addFrameworkStatement.executeUpdate();
+			System.out.println("Framework "+frameworkName+" has been added Successfully");
 			
 		} catch (SQLException e) {
 			System.out.println("Unable to create framework ");
