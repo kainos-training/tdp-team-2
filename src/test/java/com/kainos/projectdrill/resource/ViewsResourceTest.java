@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import io.dropwizard.views.View;
 
+import com.kainos.projectdrill.views.FrameworkExpert;
 import com.kainos.projectdrill.views.Frameworks;
 import com.kainos.projectdrill.views.Index;
 
@@ -23,6 +24,11 @@ public class ViewsResourceTest {
 	public void testgetListOfFrameworksReturnsFrameworks() {
         View actualView = resource.getListOfFrameworks();
 		assertTrue(actualView instanceof Frameworks);
+	}
+	@Test
+	public void testFrameworkResourceReturnsFramework() {
+        View actualView = resource.FrameworkResource();
+		assertTrue(actualView instanceof FrameworkExpert);
 	}
 	
 }
