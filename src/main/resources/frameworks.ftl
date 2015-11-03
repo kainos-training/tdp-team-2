@@ -16,7 +16,7 @@
                     </tr>
                    <#list frameworks as framework>
                     <tr>
-            			<td><a href="/frameworks/${framework.frameworkId}">${framework.frameworkName}</a></td>
+            			<td><a href="/framework/${framework.frameworkId}">${framework.frameworkName}</a></td>
                         <td>${framework.frameworkLanguage}</td>
                     </tr>
                   </#list>
