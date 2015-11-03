@@ -2,6 +2,9 @@
     xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8">
+
+        <link href="http://rural-payments-styleguide.herokuapp.com/assets/stylesheets/main.css" media="all" rel="stylesheet">
+
             <link href="/assets/stylesheets/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
 
             <link rel="stylesheet" type="text/css" href="/assets/stylesheets/datatables.min.css"/>
@@ -10,6 +13,7 @@
             <script type="text/javascript" src="/assets/javascripts/frameworks.js"></script>
         <link href="http://rural-payments-styleguide.herokuapp.com/assets/stylesheets/main.css" media="all" rel="stylesheet">
           
+
         </head>
         <div class="container">
             <main id="content" role="main" class="">
