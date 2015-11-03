@@ -26,6 +26,7 @@ call addFramework("Sinatra",6);
 call addFramework("Ruby on Rails", 6);
 call addFramework("Drupal", 5);
 
+-- call to get name of framework and language of framework
 
 
 INSERT INTO `User` VALUES (1,'Peadar'),(2,'Martin'),(3,'Josh'),(4,'Tanya');
