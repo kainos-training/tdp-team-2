@@ -39,21 +39,24 @@
 				<option>Select a language</option>
 				
 				<#list languages as language>
-				<option value="${language.id}">${language.name}</option>
-				</#list>s
+				<option value="${language.languageId}">${language.languageName}</option>
+				</#list>
 			</select>
 		</div>
 
+		<!--
 		<div class="form-group">
 			<label class="form-label" for="expert-name">Expert's name
 				(optional)</label> <input class="form-control" id="expert-name" type="text"
 				placeholder="Enter full name">
 		</div>
+		-->
 
 		<div class="form-group">
 			<button id="submit" class="button" type="button">Add
 				framework</button>
 		</div>
+		 
 
 	</form>
 	</main>
