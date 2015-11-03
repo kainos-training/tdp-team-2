@@ -4,16 +4,19 @@ public class User {
 	
 	private int userId;
 	private String userName;
-	
+	private String frameworkName;
+	private String frameworkLanguage;
 	
 	//Constructors
 	public User(){}
 	
-	public User(int newUserId, String newUserName){
+	public User(int newUserId, String newUserName, String frameworkName, String frameworkLanguage){
 		userId = newUserId;
 		userName = newUserName;
+		this.frameworkLanguage = frameworkLanguage;
+		this.frameworkName = frameworkName;
 	}	
-	
+		
 	
 	//Getters and Setters
 	public String getUserName() {

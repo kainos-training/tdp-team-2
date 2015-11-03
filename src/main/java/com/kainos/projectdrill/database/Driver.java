@@ -60,19 +60,26 @@ public class Driver {
 		connectToDatabase();
 		
 		ArrayList<User> frameworkSummaryArray = new ArrayList<User>();
-		
+				
 		try{
+			
 			Statement create = connection.createStatement();
-			ResultSet result = create.executeQuery("select frameworks.Name AS name, User.name AS Expert"+ 
+			ResultSet result = create.executeQuery("select frameworks.Name AS name, User.id AS userId, User.name AS Expert, languages.Name AS language"+ 
 				"FROM frameworks "+
 				"JOIN Framework_User ON frameworks.ID = Framework_User.frameworkid "+
 				"JOIN User ON Framework_User.userid = User.id " +
-				"WHERE frameworks.ID " + id);
-			
+				"JOIN languages ON frameworks.Language = languages.ID " +
+				"WHERE frameworks.ID = " + id);
+
+			int i = 0;
 			while(result.next()){
-				User newUser = new User();
+				i++;
+				User newUser = new User(result.getInt("userId"), result.getString("Expert"), result.getString("name"), result.getString("language"));
+
 				frameworkSummaryArray.add(newUser);
 			}
+			System.out.println("SELECT DONE, RESULT SIZE : " + i);
+			System.out.println("SELECT DONE, RESULT SIZE : " + frameworkSummaryArray.size());
 			return frameworkSummaryArray;
 			}
 			catch (SQLException e) {

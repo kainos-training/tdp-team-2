@@ -11,22 +11,24 @@
 	
 	<a href="/frameworks">Back to framework list</a>
 		
-	<h1 class="heading-xlarge">Ruby on Rails</h1>
-    <h3 class="heading-medium">Language: Ruby</h3>
+	<h1 class="heading-xlarge">Framework</h1>
+    <h3 class="heading-medium">Language: ---</h3>
 
 	<br>
-	
-	<table class="table table-striped">
-	  <tr>
-	  	<th>Experts who used this framework</th>
-	  	
-        	<tbody>
-            	<tr>
-            		<td>user</td>
-                 </tr>
-             </tbody>
-	  
-	</table>
+	    <table id="framework-summary" class="display table">
+   	     <thead>
+         	<tr>
+            	<th>Experts who used this framework</th>
+            </tr>
+         </thead>
+         <tbody>
+         	<#list userList as experts>
+                    <tr>
+                        <td>${experts.Expert}</td>
+                    </tr>
+                 </tbody>
+             </#list>
+          </table>
     
 	</main>
 </html>

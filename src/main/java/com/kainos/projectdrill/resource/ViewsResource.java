@@ -31,19 +31,22 @@ public class ViewsResource {
 	public View sayHello(){
 		return new Index();
 	}
-
+	
+	//{id}
 
 	@GET
 	@Timed
 	@Path("/framework/{id}")
 	@Produces(MediaType.TEXT_HTML)
-	public View FrameworkResource(@PathParam("id") int id){
-		
-	//	System.out.println("this is id "+id);
+	public View FrameworkResource(@PathParam("id") int id){	
+	
+		System.out.println("GETTING TO CALL OK");
 		Driver newDriver = new Driver();
-		
+		System.out.println("CREATING DRIVER OK - GOING TO PASS " + id + "ID TO VIEW");
 		return new FrameworkExpert(newDriver.frameworkSummary(id));
+	
 	}
+	
 	/*
 	 * Gets a GET Request on /frameworks
 	 * and
