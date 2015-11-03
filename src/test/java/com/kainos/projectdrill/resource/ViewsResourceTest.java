@@ -1,8 +1,12 @@
 package com.kainos.projectdrill.resource;
 
 import org.junit.Test;
+
 import io.dropwizard.views.View;
+
+import com.kainos.projectdrill.views.Frameworks;
 import com.kainos.projectdrill.views.Index;
+
 import static org.junit.Assert.assertTrue;
 
 public class ViewsResourceTest {
@@ -14,4 +18,11 @@ public class ViewsResourceTest {
         View actualView = resource.sayHello();
 		assertTrue(actualView instanceof Index);
 	}
+	
+	@Test
+	public void testgetListOfFrameworksReturnsFrameworks() {
+        View actualView = resource.getListOfFrameworks();
+		assertTrue(actualView instanceof Frameworks);
+	}
+	
 }
