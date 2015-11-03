@@ -11,9 +11,10 @@
 	
 	<a href="/frameworks">Back to framework list</a>
 		
-	<h1 class="heading-xlarge">Framework</h1>
-    <h3 class="heading-medium">Language: ---</h3>
-
+	<#list> 	
+	<h1 class="heading-xlarge">${Expert.frameworkName[0]}</h1>
+    <h3 class="heading-medium">Language: ${Expert.frameworkLanguage[0]}</h3>
+	</#>
 	<br>
 	<table id="framework-summary" class="display table">
    	     <thead>
@@ -22,9 +23,9 @@
             </tr>
          </thead>
          <tbody>
-         	<#list userList as user>
+         	<#list userList as Expert>
                     <tr>
-                        <td>${user.expert}</td>
+                        <td>${Expert.userName}</td>
                     </tr>
              </#list>
           </tbody>
