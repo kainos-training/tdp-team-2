@@ -9,20 +9,23 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.kainos.projectdrill.models.Framework;
+import com.kainos.projectdrill.configuration.DatabaseConfiguration;
 
 
 public class Driver {
-	private final String databaseUrl = "jdbc:mysql://localhost/team2";
 
-	private final String databaseUser = "Team2User";
-	private final String databasePassword = "Team2Password";
+	private DatabaseConfiguration dbConfig;
 	Connection connection;
 
-	
+	public Driver(DatabaseConfiguration dbConfig) {
+		this.dbConfig = dbConfig;
+	}
+
+
 	//Try to connect to database
 	public void connectToDatabase(){
 		try{
-		    connection = DriverManager.getConnection(databaseUrl,databaseUser,databasePassword);
+		    connection = DriverManager.getConnection(dbConfig.getUrl(), dbConfig.getUser(), dbConfig.getPassword());
 		    System.out.println("Successfully connected to database.");
 		} catch (Exception e){
 			System.out.println("Error occured while attempting connection to database");
@@ -30,11 +33,11 @@ public class Driver {
 			System.exit(1);
 		}
 	}
-	
-	
+
+
 	//Method to list all frameworks in database
 	public ArrayList<Framework> listFrameworks(){
-		
+
 		connectToDatabase();
 		ArrayList<Framework> frameworkArray = new ArrayList<Framework>();
 		try {
@@ -42,7 +45,7 @@ public class Driver {
 			ResultSet result = create.executeQuery("Select frameworks.ID AS id, frameworks.Name AS name, languages.Name AS language FROM frameworks JOIN languages ON frameworks.language = languages.ID;");
 
 			while(result.next()){
-				
+
 				Framework newFramework = new Framework(result.getInt("id"), result.getString("name"), result.getString("language") );
 				frameworkArray.add(newFramework);
 			}
@@ -52,7 +55,7 @@ public class Driver {
 			e.printStackTrace();
 			return frameworkArray;
 		}
-		
+
 	}
-	
+
 }
