@@ -27,7 +27,7 @@ public class ViewsResource {
 	
 	@GET
 	@Timed
-	@Path("/frameworkExpert")
+	@Path("/framework")
 	@Produces(MediaType.TEXT_HTML)
 	public View FrameworkExpertResource(){
 		return new FrameworkExpert();
