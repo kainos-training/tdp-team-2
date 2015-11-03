@@ -33,10 +33,12 @@ public class Driver {
 	
 	//Method to list all frameworks in database
 	public ArrayList<Framework> listFrameworks(){
+		
+		connectToDatabase();
 		ArrayList<Framework> frameworkArray = new ArrayList<Framework>();
 		try {
 			Statement create = connection.createStatement();
-			ResultSet result = create.executeQuery("Select frameworks.ID AS id, frameworks.Name AS name, languages.Name AS language FROM frameworks JOIN languages ON frameworks.language = languages.ID; from frameworks");
+			ResultSet result = create.executeQuery("Select frameworks.ID AS id, frameworks.Name AS name, languages.Name AS language FROM frameworks JOIN languages ON frameworks.language = languages.ID;");
 
 			while(result.next()){
 				
