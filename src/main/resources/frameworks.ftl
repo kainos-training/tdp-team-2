@@ -8,6 +8,8 @@
 
             <script type="text/javascript" src="/assets/javascripts/datatables.min.js"></script>
             <script type="text/javascript" src="/assets/javascripts/frameworks.js"></script>
+        <link href="http://rural-payments-styleguide.herokuapp.com/assets/stylesheets/main.css" media="all" rel="stylesheet">
+          
         </head>
         <div class="container">
             <main id="content" role="main" class="">
@@ -22,7 +24,7 @@
                    <#list frameworks as framework>
                     <tbody>
                     <tr>
-            			<td>${framework.frameworkName}</td>
+            			<td><a href="/framework/${framework.frameworkId}">${framework.frameworkName}</a></td>
                         <td>${framework.frameworkLanguage}</td>
                     </tr>
                     </tbody>
