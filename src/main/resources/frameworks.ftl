@@ -25,6 +25,7 @@
 			<button id="addframework" class="button" type="submit">Add framework</button>
 		</div>
 	</form>
+	<br>
 	
 	<table id="framework-list" class="display table">
 		<thead>

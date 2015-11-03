@@ -18,12 +18,15 @@
 </head>
 <div class="container">
 	<main id="content" role="main" class="">
+	<br>
 	<p>
 		<a href="/frameworks">Back to framework list</a>
 	</p>
+	<br>
 
 	<h1>Add a framework</h1>
-
+	<br>
+	
 	<form action="/processAddFramework" method="POST">
 
 		<div class="form-group">
@@ -53,11 +56,11 @@
 		-->
 
 		<div class="form-group">
-			<button id="submit" class="button" type="button">Add
+			<br>
+			<button id="submit" class="button" type="submit">Add
 				framework</button>
 		</div>
 		 
-
 	</form>
 	</main>
 </div>
