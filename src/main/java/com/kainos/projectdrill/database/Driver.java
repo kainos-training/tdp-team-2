@@ -9,9 +9,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
 import com.kainos.projectdrill.models.Framework;
 import com.kainos.projectdrill.models.Language;
 import com.kainos.projectdrill.configuration.DatabaseConfiguration;
+import com.kainos.projectdrill.models.Framework;
+import com.kainos.projectdrill.models.User;
+
 
 
 public class Driver {
@@ -126,4 +130,41 @@ public class Driver {
 		}
 
 	}
+	
+	public ArrayList<User> frameworkSummary(int id){
+		
+		connectToDatabase();
+		
+		ArrayList<User> frameworkSummaryArray = new ArrayList<User>();
+	//	ArrayList<Framework> fwork
+				
+		try{
+			
+			Statement create = connection.createStatement();
+			ResultSet result = create.executeQuery("select frameworks.ID AS frameworkId, frameworks.Name AS name, User.id AS userId, User.name AS expert, languages.Name AS language "+ 
+				"FROM frameworks "+
+				"JOIN Framework_User ON frameworks.ID = Framework_User.frameworkid "+
+				"JOIN User ON Framework_User.userid = User.id " +
+				"JOIN languages ON frameworks.Language = languages.ID " +
+				"WHERE frameworks.ID = " + id + ";");
+
+			int i = 0;
+			while(result.next()){
+				i++;
+				User newUser = new User(result.getInt("userId"), result.getString("expert"), result.getString("name"), result.getString("language"));
+	//			Framework fWork = new Framework(result.getInt("ID"), result.getString("name"), result.getString("language"));
+				frameworkSummaryArray.add(newUser);
+				
+			}
+			System.out.println("SELECT DONE, RESULT SIZE : " + i);
+			System.out.println("SELECT DONE, RESULT SIZE : " + frameworkSummaryArray.size());
+			return frameworkSummaryArray;
+			}
+			catch (SQLException e) {
+				System.out.println("An error occurred.");
+				e.printStackTrace();
+				return frameworkSummaryArray;
+			}
+	}
+	
 }

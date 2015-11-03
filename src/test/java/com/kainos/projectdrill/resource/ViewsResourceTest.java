@@ -38,7 +38,7 @@ public class ViewsResourceTest {
 	}
 	@Test
 	public void testFrameworkResourceReturnsFramework() {
-        View actualView = resource.FrameworkResource();
+        View actualView = resource.FrameworkResource(1);
 		assertTrue(actualView instanceof FrameworkExpert);
 	}
 
