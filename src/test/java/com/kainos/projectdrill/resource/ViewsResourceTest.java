@@ -19,6 +19,7 @@ public class ViewsResourceTest {
         View actualView = resource.sayHello();
 		assertTrue(actualView instanceof Index);
 	}
+<<<<<<< HEAD
 	
 	@Test
 	public void testgetListOfFrameworksReturnsFrameworks() {
@@ -31,4 +32,8 @@ public class ViewsResourceTest {
 		assertTrue(actualView instanceof FrameworkExpert);
 	}
 	
+=======
+
+
+>>>>>>> 1f0e19d66dbbb03c345e27b889ff8717ee1527d9
 }
