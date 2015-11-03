@@ -9,7 +9,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.collect.ImmutableMap;
 
 public class ProjectDrillConfiguration extends Configuration {
-	
+
+    @NotNull
+    @JsonProperty
+    private DatabaseConfiguration database = new DatabaseConfiguration();
+
+    public DatabaseConfiguration getDatabaseConfiguration() {
+        return database;
+    }
+
 	@NotNull
     private ImmutableMap<String, ImmutableMap<String, String>> viewRendererConfiguration = ImmutableMap.of();
 

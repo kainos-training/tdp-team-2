@@ -14,4 +14,6 @@ public class ViewsResourceTest {
         View actualView = resource.sayHello();
 		assertTrue(actualView instanceof Index);
 	}
+
+
 }
