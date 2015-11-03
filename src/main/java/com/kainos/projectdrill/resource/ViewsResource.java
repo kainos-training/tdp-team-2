@@ -56,15 +56,19 @@ public class ViewsResource {
 		Driver newDriver = new Driver(dbConfig);
 		return new Frameworks(newDriver.listFrameworks());
 	}
+	
+	/*
+	 * Handles GET requests to show a add framework form.
+	 */
 
 	@GET
 	@Timed
 	@Path("/addframework")
 	@Produces(MediaType.TEXT_HTML)
 	public View AddFramework() {
-
-		Driver newDriver = new Driver(dbConfig);
-		return new addFramework();
+		
+		Driver driver = new Driver(dbConfig);
+		return new addFramework(driver.listLanguages());
 
 	}
 

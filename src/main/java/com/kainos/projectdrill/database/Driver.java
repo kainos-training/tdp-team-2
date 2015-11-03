@@ -71,7 +71,7 @@ public class Driver {
 
 				while(result.next()){
 					
-					Language newLanguage = new Language(result.getInt("id"), result.getString("name"));
+					Language newLanguage = new Language(result.getInt("id"), result.getString("language"));
 					languageArray.add(newLanguage);
 				}
 				return languageArray;
