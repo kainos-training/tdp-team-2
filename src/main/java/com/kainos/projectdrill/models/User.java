@@ -16,6 +16,11 @@ public class User {
 		this.frameworkLanguage = frameworkLanguage;
 		this.frameworkName = frameworkName;
 	}	
+	
+	public User(int newUserId, String newUserName) {
+		userId = newUserId;
+		userName = newUserName;
+	}
 		
 	
 	//Getters and Setters

@@ -25,16 +25,17 @@
                             <th>Implementation Language</th>
                         </tr>
                     </thead>
-                   <#list frameworks as framework>
                     <tbody>
-                    <tr>
-            			<td><a href="/framework/${framework.frameworkId}">${framework.frameworkName}</a></td>
-                        <td>${framework.frameworkLanguage}</td>
-                    </tr>
+                    <#list frameworks as framework>
+                        <tr>
+                			<td><a href="/framework/${framework.frameworkId}">${framework.frameworkName}</a></td>
+                            <td>${framework.frameworkLanguage}</td>
+                        </tr>
+                    </#list>
                     </tbody>
-                  </#list>
                 </table>
             </main>
         </div>
         <!-- /.container -->
+        <script type="text/javascript" src="/assets/javascripts/frameworks.js"></script>
     </html>
