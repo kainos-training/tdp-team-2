@@ -10,23 +10,24 @@
 	<br>
 	
 	<a href="/frameworks">Back to framework list</a>
-		
-	<h1 class="heading-xlarge">Ruby on Rails</h1>
-    <h3 class="heading-medium">Language: Ruby</h3>
-
+		<h1 class="heading-xlarge">${userList[0].frameworkName?string}</h1>
+   		<h3 class="heading-medium">Language: ${userList[0].frameworkLanguage?string}</h3>
+ 
 	<br>
-	
-	<table class="table table-striped">
-	  <tr>
-	  	<th>Experts who used this framework</th>
-	  </tr>
-	  <tr>
-	  	<td>Benjamin Franklin</th>
-	  </tr>
-	  <tr>
-	  	<td>Ziggy Stardust</th>
-	  </tr>
-	</table>
+	<table id="framework-summary" class="display table">
+   	     <thead>
+         	<tr>
+            	<th>Experts who used this framework</th>
+            </tr>
+         </thead>
+         <tbody>
+         	<#list userList as Expert>
+                    <tr>
+                        <td>${Expert.userName}</td>
+                    </tr>
+             </#list>
+          </tbody>
+     </table>
     
 	</main>
 </html>

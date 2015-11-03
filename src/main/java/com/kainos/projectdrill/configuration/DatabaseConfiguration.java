@@ -23,4 +23,16 @@ public class DatabaseConfiguration {
     public String getPassword() {
         return password;
     }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
