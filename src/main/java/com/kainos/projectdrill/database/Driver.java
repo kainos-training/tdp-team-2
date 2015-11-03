@@ -6,12 +6,15 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.kainos.projectdrill.models.Framework;
 
 
 public class Driver {
 	private final String databaseUrl = "jdbc:mysql://localhost";
 	private final String databaseUser = "root";
-	private final String databasePassword = "";
+	private final String databasePassword = "ch@ngeme1";
 	Connection connection;
 
 	
@@ -29,18 +32,22 @@ public class Driver {
 	
 	
 	//Method to list all frameworks in database
-	public void listFrameworks(){
-
+	public ArrayList<Framework> listFrameworks(){
+		ArrayList<Framework> frameworkArray = new ArrayList<Framework>();
 		try {
 			Statement create = connection.createStatement();
-			ResultSet result = create.executeQuery("Select * from frameworks");
-			
+			ResultSet result = create.executeQuery("Select frameworks.ID AS id, frameworks.Name AS name, languages.Name AS language FROM frameworks JOIN languages ON frameworks.language = languages.ID; from frameworks");
+
 			while(result.next()){
-				System.out.println(result.getString(2));
+				
+				Framework newFramework = new Framework(result.getInt("id"), result.getString("name"), result.getString("language") );
+				frameworkArray.add(newFramework);
 			}
+			return frameworkArray;
 		} catch (SQLException e) {
 			System.out.println("An error occurred.");
 			e.printStackTrace();
+			return frameworkArray;
 		}
 		
 	}

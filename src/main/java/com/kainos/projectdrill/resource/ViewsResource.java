@@ -9,6 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.codahale.metrics.annotation.Timed;
+import com.kainos.projectdrill.database.Driver;
 import com.kainos.projectdrill.models.Framework;
 import com.kainos.projectdrill.views.Frameworks;
 import com.kainos.projectdrill.views.Index;
@@ -42,11 +43,15 @@ public class ViewsResource {
 	@Produces(MediaType.TEXT_HTML)
 	public View getListOfFrameworks(){
 		//TODO Replace the below Arraylist and call database.	
-		Framework mockData = new Framework();
-		mockData.setFrameworkLanguage("Java");
-		mockData.setFrameworkName("Dropwizard");
-		List<Framework> frameworks = new ArrayList();
-		frameworks.add(mockData);
-		return new Frameworks(frameworks);
+		//Framework mockData = new Framework();
+		//mockData.setFrameworkLanguage("Java");
+		//mockData.setFrameworkName("Dropwizard");
+		//List<Framework> frameworks = new ArrayList();
+		//frameworks.add(mockData);
+		//return new Frameworks(frameworks);
+		
+		Driver newDriver = new Driver();
+		
+		return new Frameworks(newDriver.listFrameworks());
 	}
 }
