@@ -10,11 +10,9 @@
 	<br>
 	
 	<a href="/frameworks">Back to framework list</a>
-		
-	<#list> 	
-	<h1 class="heading-xlarge">${Expert.frameworkName[0]}</h1>
-    <h3 class="heading-medium">Language: ${Expert.frameworkLanguage[0]}</h3>
-	</#>
+		<h1 class="heading-xlarge">${userList[0].frameworkName?string}</h1>
+   		<h3 class="heading-medium">Language: ${userList[0].frameworkLanguage?string}</h3>
+ 
 	<br>
 	<table id="framework-summary" class="display table">
    	     <thead>

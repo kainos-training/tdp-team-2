@@ -17,6 +17,22 @@ public class User {
 		this.frameworkName = frameworkName;
 	}	
 	
+	public String getFrameworkName() {
+		return frameworkName;
+	}
+
+	public void setFrameworkName(String frameworkName) {
+		this.frameworkName = frameworkName;
+	}
+
+	public String getFrameworkLanguage() {
+		return frameworkLanguage;
+	}
+
+	public void setFrameworkLanguage(String frameworkLanguage) {
+		this.frameworkLanguage = frameworkLanguage;
+	}
+
 	public User(int newUserId, String newUserName) {
 		userId = newUserId;
 		userName = newUserName;
