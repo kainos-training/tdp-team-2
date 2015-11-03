@@ -20,9 +20,9 @@
 	<main id="content" role="main" class="">
 	<h1>Framework list</h1>
 	
-	<form action="/addframework">
+	<form action="addframework" method="GET">
 		<div class="form-group">
-			<button id="/addframework" class="button" type="button">Add framework</button>
+			<button id="addframework" class="button" type="submit">Add framework</button>
 		</div>
 	</form>
 	

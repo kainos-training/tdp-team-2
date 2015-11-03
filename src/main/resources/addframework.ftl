@@ -24,7 +24,7 @@
 
 	<h1>Add a framework</h1>
 
-	<form action="/addframework" method="POST">
+	<form action="/processAddFramework" method="POST">
 
 		<div class="form-group">
 			<label class="form-label" for="framework-name">Framework name</label>
@@ -37,8 +37,10 @@
 				language</label> 
 			<select class="form-control-select" id="framework-language">
 				<option>Select a language</option>
-				<option value="1">Option 1</option>
-				<option value="2">Option 2</option>
+				
+				<#list languages as language>
+				<option value="${language.id}">${language.name}</option>
+				</#list>s
 			</select>
 		</div>
 
