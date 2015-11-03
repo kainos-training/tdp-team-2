@@ -19,13 +19,13 @@
 	<table class="table table-striped">
 	  <tr>
 	  	<th>Experts who used this framework</th>
-	  </tr>
-	  <tr>
-	  	<td>Benjamin Franklin</th>
-	  </tr>
-	  <tr>
-	  	<td>Ziggy Stardust</th>
-	  </tr>
+	  	
+        	<tbody>
+            	<tr>
+            		<td>user</td>
+                 </tr>
+             </tbody>
+	  
 	</table>
     
 	</main>
