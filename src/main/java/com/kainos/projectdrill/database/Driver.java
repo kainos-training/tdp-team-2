@@ -9,6 +9,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
+import com.kainos.projectdrill.models.Framework;
+import com.kainos.projectdrill.models.Language;
 import com.kainos.projectdrill.configuration.DatabaseConfiguration;
 import com.kainos.projectdrill.models.Framework;
 import com.kainos.projectdrill.models.User;
@@ -54,13 +57,37 @@ public class Driver {
 			}
 			return frameworkArray;
 		} catch (SQLException e) {
-			System.out.println("An error occurred when retrieving framework objects from the database.");
+			System.out.println("An error occurred when retrieving framework from the database.");
 			e.printStackTrace();
 			return frameworkArray;
 		}
 
 	}
+	
+	//Method to list all languages in database
+		public ArrayList<Language> listLanguages(){
+			
+			connectToDatabase();
+			ArrayList<Language> languageArray = new ArrayList<Language>();
+			try {
+				Statement create = connection.createStatement();
+				ResultSet result = create.executeQuery("Select languages.ID as id, languages.Name AS language FROM languages;");
 
+				while(result.next()){
+					
+					Language newLanguage = new Language(result.getInt("id"), result.getString("language"));
+					languageArray.add(newLanguage);
+				}
+				return languageArray;
+			} catch (SQLException e) {
+				System.out.println("An error occurred when retrieving languages from the database.");
+				e.printStackTrace();
+				return languageArray;
+			}
+			
+		}
+	
+	
 	//Method to list all frameworks names in database
 	public ArrayList<String> listFrameworksNames(){
 
