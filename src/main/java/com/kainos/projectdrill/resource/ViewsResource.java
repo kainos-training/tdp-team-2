@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 import com.codahale.metrics.annotation.Timed;
 import com.kainos.projectdrill.models.Framework;
 import com.kainos.projectdrill.views.Frameworks;
+import com.kainos.projectdrill.views.FrameworkExpert;
 import com.kainos.projectdrill.views.Index;
 
 import io.dropwizard.views.View;
@@ -28,7 +29,6 @@ public class ViewsResource {
 		return new Index();
 	}
 
-	
 	
 	/*
 	 * Gets a GET Request on /frameworks 
@@ -48,5 +48,14 @@ public class ViewsResource {
 		List<Framework> frameworks = new ArrayList();
 		frameworks.add(mockData);
 		return new Frameworks(frameworks);
+	}
+
+	@GET
+	@Timed
+	@Path("/framework")
+	@Produces(MediaType.TEXT_HTML)
+	public View FrameworkExpertResource(){
+		return new FrameworkExpert();
+
 	}
 }
