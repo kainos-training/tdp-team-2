@@ -9,12 +9,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.kainos.projectdrill.models.Framework;
+import com.kainos.projectdrill.models.User;
 
 
 public class Driver {
 	private final String databaseUrl = "jdbc:mysql://localhost/team2";
 	private final String databaseUser = "root";
-	private final String databasePassword = "";
+	private final String databasePassword = "ch@ngeme1";
 	Connection connection;
 
 	
@@ -52,6 +53,30 @@ public class Driver {
 			return frameworkArray;
 		}
 		
+	}
+	
+	public ArrayList<User> frameworkSummary(int id){
+		
+		connectToDatabase();
+		
+		ArrayList<User> frameworkSummaryArray = new ArrayList<User>();
+		
+		try{
+			Statement create = connection.createStatement();
+			ResultSet result = create.executeQuery("Select frameworks.ID AS id, frameworks.Name AS name, languages.Name AS language FROM frameworks JOIN languages ON frameworks.language = languages.ID;"
+					+ "WHERE frameworks.ID "+ id + ";");
+			
+			while(result.next()){
+				User newUser = new User();
+				frameworkSummaryArray.add(newUser);
+			}
+			return frameworkSummaryArray;
+			}
+			catch (SQLException e) {
+				System.out.println("An error occurred.");
+				e.printStackTrace();
+				return frameworkSummaryArray;
+			}
 	}
 	
 }

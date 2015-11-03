@@ -9,8 +9,12 @@ import com.kainos.projectdrill.models.User;
 
 public class FrameworkExpert extends View{
 	
-	public FrameworkExpert(){
+	private List<FrameworkExpert> frameworkSummary;
+	
+	public FrameworkExpert(List<FrameworkExpert> frameworkExperts) {	
 		super("/framework.ftl");
+		this.frameworkSummary = frameworkExperts;
 	}
+	
 
 }

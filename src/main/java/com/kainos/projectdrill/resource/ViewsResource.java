@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -34,11 +35,14 @@ public class ViewsResource {
 
 	@GET
 	@Timed
-	@Path("/framework")
+	@Path("/framework/{id}")
 	@Produces(MediaType.TEXT_HTML)
-	public View FrameworkResource(){
-
-		return new FrameworkExpert();
+	public View FrameworkResource(@PathParam("id") int id){
+		
+	//	System.out.println("this is id "+id);
+		Driver newDriver = new Driver();
+		
+		return new FrameworkExpert(newDriver.frameworkSummary(id));
 	}
 	/*
 	 * Gets a GET Request on /frameworks
