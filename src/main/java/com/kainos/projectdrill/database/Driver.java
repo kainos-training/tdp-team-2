@@ -3,6 +3,7 @@ package com.kainos.projectdrill.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,7 +26,7 @@ public class Driver {
 		    connection = DriverManager.getConnection(databaseUrl,databaseUser,databasePassword);
 		    System.out.println("Successfully connected to database.");
 		} catch (Exception e){
-			System.out.println("Error occured while attempting connection to database");
+			System.out.println("An error occurred while attempting to connect to the database.");
 			e.printStackTrace();
 			System.exit(1);
 		}
@@ -48,9 +49,52 @@ public class Driver {
 			}
 			return frameworkArray;
 		} catch (SQLException e) {
-			System.out.println("An error occurred.");
+			System.out.println("An error occurred when retrieving framework objects from the database.");
 			e.printStackTrace();
 			return frameworkArray;
+		}
+		
+	}
+	
+	//Method to list all frameworks names in database
+	public ArrayList<String> listFrameworksNames(){
+		
+		connectToDatabase();
+		ArrayList<String> frameworkNameArray = new ArrayList<String>();
+		try {
+			Statement create = connection.createStatement();
+			ResultSet result = create.executeQuery("Select frameworks.Name AS name FROM frameworks;");
+
+			while(result.next()){
+				String newFrameworkName = result.getString("name");
+				frameworkNameArray.add(newFrameworkName);
+			}
+			return frameworkNameArray;
+		} catch (SQLException e) {
+			System.out.println("An error occurred when retriving framework names from the database.");
+			e.printStackTrace();
+			return frameworkNameArray;
+		}
+		
+	}
+	
+	public void addFramework(String frameworkName, int languageId){
+		
+		connectToDatabase();
+		try {
+			//SQL Statement to Add Framework
+			PreparedStatement addFrameworkStatement = connection.prepareStatement(
+					"CALL addFramework (Name, Language) Values(?, ?)");
+			addFrameworkStatement.setString(1,frameworkName);
+			addFrameworkStatement.setInt(2,languageId);
+
+			//Executing prepared statement
+			addFrameworkStatement.executeUpdate();
+			System.out.println("Framework "+frameworkName+" has been added Successfully");
+			
+		} catch (SQLException e) {
+			System.out.println("Unable to add framework to the database. ");
+			e.printStackTrace();
 		}
 		
 	}
