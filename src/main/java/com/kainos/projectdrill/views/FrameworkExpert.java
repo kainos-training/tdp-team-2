@@ -11,6 +11,14 @@ public class FrameworkExpert extends View{
 	
 	private List<User> frameworkSummary;
 	
+	public List<User> getFrameworkSummary() {
+		return frameworkSummary;
+	}
+
+	public void setFrameworkSummary(List<User> frameworkSummary) {
+		this.frameworkSummary = frameworkSummary;
+	}
+
 	public FrameworkExpert(List<User> frameworkExperts) {	
 		super("/framework.ftl");
 		this.frameworkSummary = frameworkExperts;
