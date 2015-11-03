@@ -63,8 +63,11 @@ public class Driver {
 		
 		try{
 			Statement create = connection.createStatement();
-			ResultSet result = create.executeQuery("Select frameworks.ID AS id, frameworks.Name AS name, languages.Name AS language FROM frameworks JOIN languages ON frameworks.language = languages.ID;"
-					+ "WHERE frameworks.ID "+ id + ";");
+			ResultSet result = create.executeQuery("select frameworks.Name AS name, User.name AS Expert"+ 
+				"FROM frameworks "+
+				"JOIN Framework_User ON frameworks.ID = Framework_User.frameworkid "+
+				"JOIN User ON Framework_User.userid = User.id " +
+				"WHERE frameworks.ID " + id);
 			
 			while(result.next()){
 				User newUser = new User();
