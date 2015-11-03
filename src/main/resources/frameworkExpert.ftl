@@ -5,30 +5,28 @@
 		<script src="/assets/javascripts/hello.js"></script>
 	</head>
 	
+	<main id="content" role="main" class="container">
+	
+	<br>
+	
 	<a href="---fill with something---">Back to framework list</a>
-	
-	<main id="content" role="main">
-	
-	<h1>Ruby on Rails</h1>
-	
-	<h4>Language: Ruby</h4>
+		
+	<h1 class="heading-xlarge">Ruby on Rails</h1>
+    <h3 class="heading-medium">Language: Ruby</h3>
+
+	<br>
 	
 	<table class="table table-striped">
-	
-	<th>Experts who used this framework</th>
-	<tr>
-  		<td class="list-group-item">Benjamin Franklin</td>
-  	</tr>
-  	<tr>
- 		<td class="list-group-item">Ziggy Stardust</td>
- 	</tr>
- 	<tr>
- 		<td class="list-group-item">--Name 3--</td>
-	</tr>
+	  <tr>
+	  	<th>Experts who used this framework</th>
+	  </tr>
+	  <tr>
+	  	<td>Benjamin Franklin</th>
+	  </tr>
+	  <tr>
+	  	<td>Ziggy Stardust</th>
+	  </tr>
 	</table>
-	
-
-	
-
+    
 	</main>
 </html>

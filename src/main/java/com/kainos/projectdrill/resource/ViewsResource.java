@@ -8,7 +8,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.codahale.metrics.annotation.Timed;
-import com.kainos.projectdrill.views.Expert;
 import com.kainos.projectdrill.views.FrameworkExpert;
 import com.kainos.projectdrill.views.Index;
 
@@ -25,13 +24,6 @@ public class ViewsResource {
 		return new Index();
 	}
 
-	@GET
-	@Timed
-	@Path("/expert")
-	@Produces(MediaType.TEXT_HTML)
-	public View ExpertResource(){
-		return new Expert();
-	}
 	
 	@GET
 	@Timed
