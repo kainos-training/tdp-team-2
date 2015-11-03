@@ -1,3 +1,9 @@
+GRANT USAGE ON *.* TO 'Team2User'@'localhost';
+DROP USER 'Team2User'@'localhost';
+CREATE USER 'Team2User'@'localhost' IDENTIFIED BY 'Team2Password';
+GRANT SELECT ON team2.* TO 'Team2User'@'localhost';
+GRANT INSERT ON team2.* TO 'Team2User'@'localhost'; 
+
 DROP DATABASE IF EXISTS team2;
 CREATE DATABASE team2;
 
@@ -53,3 +59,6 @@ CREATE TABLE `Framework_User` (
   CONSTRAINT `fk_User_Framework_User` FOREIGN KEY (`userid`) REFERENCES `User` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Framework_User_Framework` FOREIGN KEY (`frameworkid`) REFERENCES `frameworks` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
+
+
+
