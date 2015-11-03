@@ -1,5 +1,8 @@
 package com.kainos.projectdrill.resource;
 
+import java.net.URI;
+import java.util.ArrayList;
+
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -7,6 +10,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
 
 import com.codahale.metrics.annotation.Timed;
 import com.kainos.projectdrill.configuration.DatabaseConfiguration;
@@ -81,10 +86,8 @@ public class ViewsResource {
 	@Path("/addframework")
 	@Produces(MediaType.TEXT_HTML)
 	public View AddFramework() {
-		
 		Driver driver = new Driver(dbConfig);
 		return new addFramework(driver.listLanguages());
-
 	}
 
 	/*
@@ -96,10 +99,23 @@ public class ViewsResource {
 	@Timed
 	@Path("/processAddFramework")
 	@Produces(MediaType.TEXT_HTML)
-	public View processAddFramework(@FormParam("name") String languageName) {
-		// TODO come back to this and complete but need to add get method first
-		// to display the page
-		Driver newDriver = new Driver(dbConfig);
+	public Response processAddFramework(@FormParam("framework-name") String frameworkName,
+			@FormParam("framework-language") int languageId) {
+		
+		Driver driver = new Driver(dbConfig);
+		
+		ArrayList<String> allFrameWorks = driver.listFrameworksNames();
+		
+		System.out.println("language id is "+languageId);
+		System.out.println("frameworkname is "+frameworkName);
+		
+		if(!allFrameWorks.contains(frameworkName)){
+			
+			driver.addFramework(frameworkName, languageId);
+			URI uri = UriBuilder.fromUri("/frameworks").build();
+	         return Response.seeOther(uri).build();
+		}
+
 		return null;
 	}
 }
