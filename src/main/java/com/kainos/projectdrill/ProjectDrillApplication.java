@@ -12,7 +12,7 @@ import io.dropwizard.views.ViewBundle;
 
 
 public class ProjectDrillApplication extends Application<ProjectDrillConfiguration> {
-	
+
 	public static void main(String[] args) throws Exception {
 		new ProjectDrillApplication().run(args);
 	}
@@ -20,10 +20,10 @@ public class ProjectDrillApplication extends Application<ProjectDrillConfigurati
 	@Override
 	public void run(ProjectDrillConfiguration configuration, Environment environment)
 			throws Exception {
-		final ViewsResource resource = new ViewsResource();
+		final ViewsResource resource = new ViewsResource(configuration.getDatabaseConfiguration());
 		environment.jersey().register(resource);
 	}
-	
+
 	@Override
 	public void initialize(Bootstrap<ProjectDrillConfiguration> bootstrap){
 		bootstrap.addBundle(new ViewBundle<ProjectDrillConfiguration>() {
@@ -31,8 +31,8 @@ public class ProjectDrillApplication extends Application<ProjectDrillConfigurati
 	        public ImmutableMap<String, ImmutableMap<String, String>> getViewConfiguration(ProjectDrillConfiguration config) {
 	            return config.getViewRendererConfiguration();
 	        }
-        });   
-		
+        });
+
 		bootstrap.addBundle(new AssetsBundle("/public/assets", "/assets"));
 	}
 
