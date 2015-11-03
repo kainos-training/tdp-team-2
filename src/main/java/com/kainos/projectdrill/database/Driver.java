@@ -14,7 +14,7 @@ import com.kainos.projectdrill.models.Framework;
 public class Driver {
 	private final String databaseUrl = "jdbc:mysql://localhost/team2";
 	private final String databaseUser = "root";
-	private final String databasePassword = "";
+	private final String databasePassword = "ch@ngeme1";
 	Connection connection;
 
 	
