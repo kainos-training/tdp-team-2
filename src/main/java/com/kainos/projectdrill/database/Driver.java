@@ -26,7 +26,7 @@ public class Driver {
 		    connection = DriverManager.getConnection(databaseUrl,databaseUser,databasePassword);
 		    System.out.println("Successfully connected to database.");
 		} catch (Exception e){
-			System.out.println("Error occured while attempting connection to database");
+			System.out.println("An error occurred while attempting to connect to the database.");
 			e.printStackTrace();
 			System.exit(1);
 		}
@@ -49,9 +49,31 @@ public class Driver {
 			}
 			return frameworkArray;
 		} catch (SQLException e) {
-			System.out.println("An error occurred.");
+			System.out.println("An error occurred when retrieving framework objects from the database.");
 			e.printStackTrace();
 			return frameworkArray;
+		}
+		
+	}
+	
+	//Method to list all frameworks names in database
+	public ArrayList<String> listFrameworksNames(){
+		
+		connectToDatabase();
+		ArrayList<String> frameworkNameArray = new ArrayList<String>();
+		try {
+			Statement create = connection.createStatement();
+			ResultSet result = create.executeQuery("Select frameworks.Name AS name FROM frameworks;");
+
+			while(result.next()){
+				String newFrameworkName = result.getString("name");
+				frameworkNameArray.add(newFrameworkName);
+			}
+			return frameworkNameArray;
+		} catch (SQLException e) {
+			System.out.println("An error occurred when retriving framework names from the database.");
+			e.printStackTrace();
+			return frameworkNameArray;
 		}
 		
 	}
@@ -71,7 +93,7 @@ public class Driver {
 			System.out.println("Framework "+frameworkName+" has been added Successfully");
 			
 		} catch (SQLException e) {
-			System.out.println("Unable to create framework ");
+			System.out.println("Unable to add framework to the database. ");
 			e.printStackTrace();
 		}
 		
