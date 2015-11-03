@@ -4,6 +4,7 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -34,10 +35,22 @@ public class ViewsResource {
 		return new Index();
 	}
 
+
 	@GET
 	@Timed
-	@Path("/framework")
+	@Path("/framework/{id}")
 	@Produces(MediaType.TEXT_HTML)
+	public View FrameworkResource(@PathParam("id") int id){	
+	
+		Driver newDriver = new Driver(this.dbConfig);
+		return new FrameworkExpert(newDriver.frameworkSummary(id));
+	
+	}
+	 /*
+	 * Gets a GET Request on /frameworks
+	 * and
+	 * returns a frameworks view with the list of frameworks.
+=======
 	public View FrameworkResource() {
 		return new FrameworkExpert();
 	}
@@ -45,6 +58,7 @@ public class ViewsResource {
 	/*
 	 * Gets a GET Request on /frameworks and returns a frameworks view with the
 	 * list of frameworks.
+>>>>>>> a216d16ac23c9d22c0b48e56fa1337a81cbfe441
 	 */
 	@GET
 	@Timed
@@ -57,6 +71,7 @@ public class ViewsResource {
 		return new Frameworks(newDriver.listFrameworks());
 	}
 	
+
 	/*
 	 * Handles GET requests to show a add framework form.
 	 */

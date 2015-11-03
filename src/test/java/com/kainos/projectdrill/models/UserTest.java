@@ -2,6 +2,7 @@ package com.kainos.projectdrill.models;
 
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
+import com.kainos.projectdrill.models.User;
 
 // Program to test the User class
 public class UserTest {
